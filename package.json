@@ -1,7 +1,7 @@
 {
   "name": "api-agrupa",
   "version": "1.0.0",
-  "description": "",
+  "description": "Trabalho de Conclusão de Curso apresentado a Etec de Praia Grande - Extensão. Equipe: BEGIN",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
