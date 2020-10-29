@@ -1,0 +1,16 @@
+{
+	"type": "mongodb",
+	"url": "mongodb+srv://gabriely:<tccdbagrupa01>@agrupa.ltbuf.mongodb.net/<dbagrupa>?retryWrites=true&w=majority",
+	"port": "",
+	"username": "",
+	"password": "",
+	"entities": [
+		"src/app/models/*.ts"
+	],
+	"migrations": [
+		"src/database/migrations/*.ts"
+	],
+	"cli": {
+		"migrationsDir": "src/database/migrations"
+	}
+}
