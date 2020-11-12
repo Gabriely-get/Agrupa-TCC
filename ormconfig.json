@@ -1,16 +1,24 @@
 {
-	"type": "mongodb",
-	"url": "mongodb+srv://gabriely:<tccdbagrupa01>@agrupa.ltbuf.mongodb.net/<dbagrupa>?retryWrites=true&w=majority",
-	"port": "",
-	"username": "",
-	"password": "",
-	"entities": [
-		"src/app/models/*.ts"
-	],
-	"migrations": [
-		"src/database/migrations/*.ts"
-	],
-	"cli": {
-		"migrationsDir": "src/database/migrations"
-	}
+   "type": "mysql",
+   "host": "localhost",
+   "port": 3306,
+   "username": "root",
+   "password": "usbw",
+   "database": "db_agrupa",
+   "synchronize": false,
+   "logging": false,
+   "entities": [
+      "src/entity/**/*.ts"
+   ],
+   "migrations": [
+      "src/migration/**/*.ts"
+   ],
+   "subscribers": [
+      "src/subscriber/**/*.ts"
+   ],
+   "cli": {
+      "entitiesDir": "src/entity",
+      "migrationsDir": "src/migration",
+      "subscribersDir": "src/subscriber"
+   }
 }

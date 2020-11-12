@@ -1,3 +1,1 @@
-module.exports = {
-	secret: "secret-key-agrupatc-2020-56397810"
-};
+export const secret = "secret-key-agrupatcc BEGIN-2020-56397810";

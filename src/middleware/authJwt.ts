@@ -1,38 +1,71 @@
-const jwt = require("jsonwebtoken");
-const config = require("../config/auth.config");
-const db = require("../models");
-const User = db.user;
+import { getRepository } from "typeorm";
+import { secret } from '../config/auth.config';
+import * as jwt from 'jsonwebtoken';
+import {User} from "../entity/User";
+import { NextFunction, Request, Response } from "express";
 
-export class authJWT{
-  verifyToken = (req, res, next) => {
-    let token = req.headers["x-access-token"];
+//fazer secret private na class
 
-    if (!token) {
-      return res.status(403).send({ message: "No token provided!" });
-    }
+async function verifyToken(req: Request, res: Response, next?: NextFunction){
 
-    jwt.verify(token, config.secret, (err, decoded) => {
-      if (err) {
-        return res.status(401).send({ message: "Unauthorized!" });
-      }
-      req.id = decoded.id;
-      next();
-    });
-  };
+    return new Promise(async (resolve) => {
+        try{
+            let token;
 
-  isAdmin = (req, res, next) => {
-    User.findById(req.id).exec((err, user) => {
-      if (err) {
-        res.status(500).send({ message: err });
-        return;
-      }
-      if (user.isAdmin == true) {
-        next();
-        return;
-      }
+            if (!(token = req.headers["x-access-token"])) {
+            return res.status(403).send({ message: "No token provided!" });
+            }
 
-      res.status(403).send({ message: "Require Admin Role!" });
-      return;
-    });
-  };
+            jwt.verify(token, secret, (err: any, decoded: any) => {
+            if (err) {
+                return res.status(401).send({ message: "Unauthorized!" });
+            }
+            next();
+            });
+        } catch(e){
+            res.send({message: 'Houve um erro inesperado'});
+            console.log(e);
+            return;
+        }
+    }).catch((err) => { res.status(500).send({ message: 'Houve um ero inesperado!' }); console.log(err); return;});
 }
+
+async function isAdmin(req: Request, res: Response, next?: NextFunction){
+    
+    return new Promise(async(resolve) => {
+        try{
+            const user = await getRepository(User);
+            let rt;
+
+            if(rt = await req.headers["x-access-token"]){
+                let userAcess = await user.findOne({ api_key: rt });
+    
+                if (!userAcess) {
+                    res.status(500).send({ message: 'Nao autorizado! Faça o login novamente.' });
+                    return;
+                }
+                if (userAcess.isAdmin == true) {
+                    next();
+                    return;
+                }
+            
+                res.status(403).send({ message: "Require Admin Role!" });
+                return;
+            }
+            else{
+
+            }
+        } catch(e){
+            res.send({message: 'Houve um erro inesperado'});
+            console.log(e);
+            return;
+        }
+    }).catch((err) => { res.status(500).send({ message: 'Houve um ero inesperado!' }); console.log(err); return;});
+}
+
+const authJwt = {
+  verifyToken,
+  isAdmin
+};
+
+export = authJwt;

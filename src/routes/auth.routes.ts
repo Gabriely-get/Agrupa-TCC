@@ -1,28 +1,29 @@
-// const app = require('../app');
-const { verifySignUp } = require('../middleware');
-const controller = require('../controller/auth.controller');
+import { useContainer } from "typeorm";
+import * as ac from "../controller/AuthController";
+import {checkDuplicateEmail} from '../middleware/verifySignUp';
 
-try{
-module.exports = function(app){
-	app.use(function(req, res, next){
-		res.header(
-			"Acess-Control-Allow-Headers",
-			"x-acess-token, Origin, Content-Type, Accept"
-		);
-		next();
-	});
+// let method = new uc.UserController;
 
-	app.post(
-		"/auth/signup",
-		[
-			verifySignUp.checkDuplicateUsername,
-			verifySignUp.checkDuplicateEmail,
-			verifySignUp.checkAdminExisted
-		],
-		controller.signup
-	);
-
-	app.post("/auth/signin", controller.signUpAdmin);
-}} catch(e: any){
-	console.log(e);
+export const authRoutes = [{
+//     method: "get",
+//     route: "auth/users",
+//     controller: uc.UserController,
+//     action: "all"
+// }, {
+//     method: "get",
+//     route: "/users/:id",
+//     controller: uc.UserController,
+//     action: "one"
+// }, {
+    method: "post",
+    route: "auth/users",
+    controller: ac.AuthController,
+    action: "storeAdmin"
 }
+// , {
+//     method: "delete",
+//     route: "/users/:id",
+//     controller: uc.UserController,
+//     action: "remove"
+// }
+];
