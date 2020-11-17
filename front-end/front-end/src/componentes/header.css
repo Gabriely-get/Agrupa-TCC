@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --salmao-mais-claro: #FF6B6B;
+    --salmao-claro: #FF6363;
+    --salmao-medio: #FF4545;
+    --salmao-escuro: #E12727;
+    --azul: #0079C6;
+    --preto: #191919;
+    --branco: #FFFFFF;
+    --cinza-claro-fundo: #F8F8F8;
+    --cinza-claro-pagina-atual: #EBEBEB;
+}
+
+div header{
+    height: 70px;
+    width: 100vw;
+    background: var(--branco);
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+    z-index: 999999999;
+    position: fixed;
+}
+
+div header ul{
+    display: flex;
+    align-items: center;
+}
+
+div header ul a{
+    display: inline-block;
+    margin-left: 5%;
+    padding: 0 5%;
+    width: auto;
+    height: 100%;
+    line-height: 70px;
+    transition: 0.2s;
+    cursor: pointer;
+    font-weight: 400;
+    text-decoration: none;
+    color: var(--preto);
+}
+
+div header ul:first-child a:hover, div header ul:first-child a li div.i-grupos ul.dropdown a:hover{
+    cursor: pointer;
+    background: var(--cinza-claro-pagina-atual);
+}
+
+div header ul:first-child a:first-child:hover{
+    cursor: pointer;
+    background: var(--branco);
+}
+
+div header ul a.pagina_atual{
+    background: var(--cinza-claro-pagina-atual);
+}
+
+div header ul a li img{
+    height: 8vh;
+    margin: 1.5vh;
+}
+
+div header ul a li .i-grupos{
+    display: flex;
+    align-items: center;
+}
+
+div header ul a li .i-grupos i{
+    margin-left: 10%;
+    font-size: 20px;
+}
+
+div header ul:first-child a li div.i-grupos ul.dropdown{
+    position: absolute;
+    background: var(--branco);
+    top: 100%;
+    left: 15%;
+    display: none;
+    flex-direction: column;
+    width: 20%;
+    transform: translate(-15%, -0%);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+div header ul:first-child a li div.i-grupos:hover ul.dropdown{
+    display: flex;
+}
+
+div header ul:first-child a li div.i-grupos ul.dropdown a{
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    text-align: left;
+    font-size: 1em;
+    line-height: 1em;
+}
+
+div header ul:first-child a li div.i-grupos ul.dropdown a li{
+    display: flex;
+    align-items: center;
+}
+
+div header ul:first-child a li div.i-grupos ul.dropdown a li img{
+    width: 3.5vh;
+    height: 3.5vh;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+div header ul:first-child a li div.i-grupos ul.dropdown a:first-child{
+    box-shadow: inset 0px 5px 5px -2px rgba(0, 0, 0, 0.25);
+}
+
+div header ul:last-child{
+    position: relative;
+}
+
+div header ul:last-child a:first-child{
+    position: absolute;
+    top: 0;
+    right: 90%;
+    transform: translate(-90%, -0%);
+}
+
+div header ul:last-child a:last-child{
+    position: absolute;
+    top: 0;
+    right: 110%;
+    transform: translate(-110%, -0%);
+}
+
+div header ul:last-child a li img{
+    border-radius: 100vh;
+    width: 8vh;
+    height: 8vh;
+    object-fit: cover;
+}
+
+div header ul:last-child a li i{
+    font-size: 25px;
+    vertical-align: -5px;
+}
+
+/*TELA PEQUENA*/
+@media screen and (max-width: 480px){
+
+}
+
+/*TELA MÉDIA-PEQUENA*/
+@media screen and (min-width: 481px) and (max-width: 768px){
+
+}
+
+/*TELA MÉDIA-GRANDE*/
+@media screen and (min-width: 769px) and (max-width: 1199px){
+
+}
+
+/*TELA GRANDE*/
+@media screen and (min-width: 1200px){
+
+}
