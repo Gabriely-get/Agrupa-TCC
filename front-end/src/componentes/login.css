@@ -1,0 +1,266 @@
+:root{
+    --salmao-mais-claro: #FF6B6B;
+    --salmao-claro: #FF6363;
+    --salmao-medio: #FF4545;
+    --salmao-escuro: #E12727;
+    --azul: #0079C6;
+    --preto: #191919;
+    --branco: #FFFFFF;
+    --cinza-claro: #F8F8F8;
+    --cinza-medio: #ebebeb;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+.box{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.voltar{
+    margin: 1% 2%;
+}
+
+.div-grid{
+    display:grid;
+    grid-template-columns: 50% 50%;
+    height: 100%;
+    width: 100%;
+}
+
+.div-grid div{
+    position: relative;
+}
+
+.div-grid div img{
+    width: 55%;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -5%);
+    margin-left: 10%;
+}
+
+.div-grid div .slogan{
+    font-size: 35px;
+    width: 90%;
+    font-weight: 500;
+    text-align: center;
+    line-height: 45px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    margin-left: 10%;
+}
+
+.div-grid div .form-login{
+    width: 70%;
+    height: 55%;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    margin-left: 10%;
+    position: relative;
+    background: var(--branco);
+}
+
+.div-grid div form h1{
+    text-align: center;
+    font-weight: 400;
+    color: #fff;
+    background: var(--salmao-claro);
+    width: 100%;
+    border-radius: 50px 50px 0 0;
+    padding: 5% 0 3% 0;
+}
+
+.div-grid div form label{
+    margin: 1% 10%;
+    display: block;
+}
+
+.div-grid div form .label-email{
+    margin-top: 3%;
+}
+
+.div-grid div form label input{
+    display: block;
+    width: 100%;
+    outline: none;
+    border-radius: 100vh;
+    border: 1px solid #000;
+    padding: 0.5% 3%;
+}
+
+.div-grid div form label a{
+    font-size: 12px;
+    vertical-align: 3px;
+    font-weight: 500;
+    color: var(--azul);
+    cursor: pointer;
+}
+
+.div-grid div form label a:hover{
+    opacity: 0.7;
+}
+
+.div-grid div form .entrar{
+    background: var(--azul);
+    color: var(--branco);
+    display: block;
+    border: none;
+    outline: none;
+    padding: 2% 10%; 
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 300;
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -85%);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.div-grid div form .entrar:hover{
+    background: var(--cinza-medio);
+    color: var(--azul);
+}
+
+.div-grid div form .naotenhoconta{
+    color: var(--azul);
+    text-decoration: none;
+    outline: none;
+    font-size: 12px;
+    font-weight: 500;
+    position: absolute;
+    top: 93%;
+    left: 50%;
+    transform: translate(-50%, -93%);
+}
+
+.div-grid div form .naotenhoconta:hover{
+    opacity: 0.7;
+}
+
+/*TELA PEQUENA*/
+@media screen and (max-width: 768px){
+    .box{
+        height: auto;
+        padding: 0% 0% 15% 0%;
+    }
+    
+    .div-grid{
+        grid-template-columns: 100%;
+    }
+    
+    .div-grid div img{
+        top: 5%;
+        left: 25%;
+        transform: translate(-25%, -5%);
+        position: relative;
+    }
+    
+    .div-grid div .slogan{
+        font-size: 25px;
+        width: 80%;
+        top: 0%;
+        left: 0%;
+        transform: translate(-0%, -0%);
+        margin-top: 5%;
+        position: relative;
+    }
+    
+    .div-grid div .form-login{
+        width: 90%;
+        height: auto;
+        padding-bottom: 5%;
+        margin-left: 4%;
+        margin-top: 5%;
+        position: relative; 
+    }
+    
+    .div-grid div form .entrar{
+        width: 200px;
+        position: relative;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, -0%);
+    }
+
+    .div-grid div form .naotenhoconta{
+        position: relative;
+        display: inline-block;
+        top: 0%;
+        left: 0%;
+        text-align: center;
+        width: 100%;
+        transform: translate(-0%, -0%);
+    }
+}
+
+/*TELA MÉDIA-GRANDE*/
+@media screen and (min-width: 769px) and (max-width: 1199px){    
+
+    .div-grid div:first-child{
+        position: relative;
+        margin-right: 5%;
+    }
+    .div-grid div img{
+        width: 50%;
+        position: relative;
+        margin-top: 5%;
+    }
+    
+    .div-grid div .slogan{
+        font-size: 25px;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, -0%);
+        position: relative;
+    }
+    
+    .div-grid div .form-login{
+        width: 80%;
+        margin-left: 5%;
+        position: relative;
+        height: auto;
+        padding-bottom: 5%;
+        margin-top: 5%;
+    }
+    
+    .div-grid div form h1{
+        font-size: 1.8em;
+    }
+    
+    .div-grid div form label{
+        margin: 2% 10%;
+        font-size: 0.9em;
+    }
+    
+    .div-grid div form .entrar{
+        font-size: 18px;        
+        position: relative;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, -0%);
+    }
+
+    .div-grid div form .naotenhoconta{
+        position: relative;
+        display: inline-block;
+        top: 0%;
+        left: 0%;
+        text-align: center;
+        width: 100%;
+        transform: translate(-0%, -0%);
+    }
+}
