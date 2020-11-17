@@ -19,6 +19,142 @@
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
 
+section.section-perfil{
+    padding-top: 70px;
+}
+
+section.section-perfil img.capa{
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+}
+
+section.section-perfil img.perfil{
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 100vh;
+    margin: -100px auto 0 auto;
+    display: block;
+}
+
+section.section-perfil h1{
+    text-align: center;
+    margin: 1% auto 1% auto;
+    font-weight: 500;
+    font-size: 2em;
+    width: 90%;
+    display: block;
+    white-space: nowrap;
+}
+
+section.section-perfil h2{
+    text-align: center;
+    margin: 0 auto 5% auto;
+    font-weight: 400;
+    font-size: 1.2em;
+    width: 90%;
+    display: block;
+    white-space: nowrap;
+}
+
+div section.lista-grupos-perfil{
+    top: 24%;
+    width: 85%;
+    margin: 0 7.5% 5% 7.5%;
+    display: grid;
+    grid-template-columns: 19% 19% 19% 19% 19%;
+    column-gap: 1.25%;
+    row-gap: 3.5%;
+}
+
+div section.lista-grupos-perfil div.card-grupo{
+    background: var(--branco);
+    border-radius: 9px;
+    overflow: hidden;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+    position: relative;
+}
+
+div section.lista-grupos-perfil div.card-grupo img{
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+div section.lista-grupos-perfil div.card-grupo h1{
+    display: block;
+    background: var(--salmao-medio);
+    color: var(--branco);
+    font-weight: 300;
+    padding: 0 2%;
+    position: absolute;
+    top: 39%;
+    left: 50%;
+    transform: translate(-50%, -39%);
+    font-size: 20px;
+    max-width: 100%;
+    text-align: center;
+    white-space: nowrap;
+}
+
+div section.lista-grupos-perfil div.card-grupo div.info-grupo div.tags{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+div section.lista-grupos-perfil div.card-grupo div.info-grupo div.tags p{
+    background: var(--salmao-claro);
+    color: var(--branco);
+    font-weight: 300;
+    font-size: 0.7em;
+    padding: 1% 5%;
+    border-radius: 100vh;
+    margin: 5% 2% 0 1%;
+}
+
+div section.lista-grupos-perfil div.card-grupo div.info-grupo div.membros{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 65%;
+    margin: 10% 17.5% 0 17.5%;
+}
+
+div section.lista-grupos-perfil div.card-grupo div.info-grupo div.membros img{
+    width: 4vh;
+    height: 5vh;
+    object-fit: contain;
+}
+
+div section.lista-grupos-perfil div.card-grupo div.info-grupo div.membros h3{
+    font-size: 0.9em;
+    font-weight: 500;
+    margin-left: 2%;
+}
+
+div section.lista-grupos-perfil div.card-grupo div.info-grupo a{
+    width: 90%;
+    background: var(--azul);
+    display: block;
+    margin: 5%;
+    margin-top: 2%;
+    color: var(--branco);
+    font-weight: 300;
+    text-align: center;
+    border-radius: 100vh;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+div section.lista-grupos-perfil div.card-grupo div.info-grupo a:hover{
+    background: var(--cinza-medio);
+    color: var(--azul);
+}
+
 /*TELA PEQUENA*/
 @media screen and (max-width: 480px){
 
