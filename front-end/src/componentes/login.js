@@ -12,7 +12,7 @@ export default class Login extends React.Component {
                 <div className="div-grid">
                     <div>
                         <img src="img/logo-v-p.png" />
-                        <h1 className="slogan">Quer conhecer pessoas com interesses iguais a você? O Agrupa pode te ajudar!</h1>
+                        <h1 className="slogan">Acesse sua conta e continue interagindo e conhecendo pessoas novas!</h1>
                     </div>
                     <div>
                         <form className="form-login">

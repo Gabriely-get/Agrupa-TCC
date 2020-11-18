@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --salmao-mais-claro: #FF6B6B;
+    --salmao-claro: #FF6363;
+    --salmao-medio: #FF4545;
+    --salmao-escuro: #E12727;
+    --azul: #0079C6;
+    --preto: #191919;
+    --branco: #FFFFFF;
+    --cinza: #4e4e4e;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+div section.section-perfil div.tags{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div section.section-perfil div.tags p{
+    background: var(--salmao-claro);
+    color: var(--branco);
+    font-weight: 300;
+    font-size: 0.9em;
+    padding: 0.2% 1%;
+    border-radius: 100vh;
+    margin: 0 0.5%;
+}
+
+div section.section-perfil div.membros{
+    position: relative;
+    width: 60%;
+    margin: 3% auto 5% auto;
+}
+
+div section.section-perfil div.membros h1{
+    font-size: 1.5em;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+div section.section-perfil div.membros div.membro{
+    margin-top: 2%;
+    height: 40px;
+    display: flex;
+}
+
+div section.section-perfil div.membros div.membro img{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+div section.section-perfil div.membros div.membro h2{
+    width: 100%;
+    line-height: 40px;
+    text-align: left;
+    margin: 0;
+    margin-left: 1%;
+    font-weight: 500;
+    font-size: 1.2em;
+    display: block;
+    cursor: pointer;
+}
+
+div section.section-perfil div.membros div.membro h3{
+    width: auto;
+    height: 30px;
+    line-height: 25px;
+    text-align: center;
+    margin: 5px 2% 0 0;
+    padding: 0.2% 0.5%;
+    font-weight: 300;
+    font-size: 0.9em;
+    display: block;
+    background: var(--azul);
+    color: var(--branco);
+}
+
+div section.section-perfil div.membros div.membro i{
+    width: auto;
+    line-height: 40px;
+    text-align: center;
+    margin: 0;
+    font-size: 1.2em;
+    display: block;
+    color: var(--preto);
+    cursor: pointer;
+}
+
+div section.section-perfil a{
+    text-align: center;
+    display: block;
+    margin-bottom: 5%;
+    font-size: 1.5em;
+    color: var(--salmao-escuro);
+}
+
+div section.section-perfil a:hover{
+    opacity: 0.8;
+}
+
+div section.section-perfil a i{
+    margin-left: 1%;
+}
+
+/*TELA PEQUENA*/
+@media screen and (max-width: 480px){
+
+}
+
+/*TELA MÉDIA-PEQUENA*/
+@media screen and (min-width: 481px) and (max-width: 768px){
+
+}
+
+/*TELA MÉDIA-GRANDE*/
+@media screen and (min-width: 769px) and (max-width: 1199px){
+
+}
+
+/*TELA GRANDE*/
+@media screen and (min-width: 1200px){
+
+}

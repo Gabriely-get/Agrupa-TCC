@@ -16,12 +16,12 @@ div header{
     height: 70px;
     width: 100vw;
     background: var(--branco);
-    position: relative;
     display: flex;
     justify-content: space-between;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
     z-index: 999999999;
     position: fixed;
+    top: 0;
 }
 
 div header ul{
@@ -141,6 +141,124 @@ div header ul:last-child a li img{
 div header ul:last-child a li i{
     font-size: 25px;
     vertical-align: -5px;
+}
+
+section.sub-header{
+    top: 70px;
+    background: var(--salmao-claro);
+    position: fixed;
+    height: 50px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+    z-index: 999999998;
+}
+
+section.sub-header ul:first-child{
+    display: flex;
+    align-items: center;
+    padding: 0 2%;
+}
+
+section.sub-header ul:first-child a{
+    display: inline-block;
+    margin-left: 5%;
+    padding: 0 10%;
+    width: auto;
+    height: 100%;
+    line-height: 50px;
+    transition: 0.2s;
+    cursor: pointer;
+    font-weight: 300;
+    text-decoration: none;
+    color: var(--branco);
+}
+
+section.sub-header ul:first-child a.pagina_atual, section.sub-header ul:first-child a:hover{
+    background: var(--salmao-escuro);
+}
+
+section.sub-header ul:last-child a li i.i-notificacao{
+    font-size: 20px;
+    line-height: 40px;
+    height: 40px;
+    width: 40px;
+    margin-top: 5px;
+    margin-right: 25px;
+    border-radius: 100vh;
+    text-align: center;
+    color: var(--preto);
+    background: var(--branco);
+}
+
+section.sub-header ul:last-child a li ul.notificacoes{
+    position: absolute;
+    top: 100%;
+    left: 98%;
+    transform: translateX(-98%);
+    width: 20%;
+    color: var(--preto);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+    display: none;
+}
+
+section.sub-header ul:last-child a li:hover ul.notificacoes{
+    position: absolute;
+    top: 100%;
+    left: 98%;
+    transform: translateX(-98%);
+    width: 20%;
+    color: var(--preto);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+    display: block;
+}
+
+section.sub-header ul:last-child a li ul.notificacoes a:nth-child(2n){
+    background: var(--cinza-claro);
+}
+
+section.sub-header ul:last-child a li ul.notificacoes a:nth-child(2n):hover{
+    background: var(--cinza-claro-hover);
+}
+
+section.sub-header ul:last-child a li ul.notificacoes a:nth-child(2n+1){
+    background: var(--cinza-escuro);
+}
+
+section.sub-header ul:last-child a li ul.notificacoes a:nth-child(2n+1):hover{
+    background: var(--cinza-escuro-hover);
+}
+
+section.sub-header ul:last-child a li ul.notificacoes a{
+    color: var(--preto);
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+section.sub-header ul:last-child a li ul.notificacoes a:first-child{
+    color: var(--preto);
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+section.sub-header ul:last-child a li ul.notificacoes a li{
+    color: var(--preto);
+    padding: 3% 5% 3% 0;
+    font-size: 0.8em;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(-100%, -50%);
+    width: 75%;
+}
+
+section.sub-header ul:last-child a li ul.notificacoes a i{
+    font-size: 1.8em;
+    color: var(--preto);
+    padding: 3% 5%;
 }
 
 /*TELA PEQUENA*/

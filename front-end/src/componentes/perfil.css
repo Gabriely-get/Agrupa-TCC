@@ -27,6 +27,7 @@ section.section-perfil img.capa{
     height: 150px;
     width: 100%;
     object-fit: cover;
+    background: var(--salmao-mais-claro);
 }
 
 section.section-perfil img.perfil{
