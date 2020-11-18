@@ -7,6 +7,9 @@ import Grupos from "./grupos";
 import Eventos from "./eventos";
 import Sugestoes from "./sugestoes";
 import Perfil from "./perfil";
+import GrupoChat from "./grupo-chat";
+import GrupoInfo from "./grupo-info";
+import GrupoEventos from "./grupo-eventos";
 
 const Routes = () => (
     <BrowserRouter>
@@ -18,6 +21,9 @@ const Routes = () => (
             <Route path="/eventos" component={Eventos}/>
             <Route path="/sugestoes" component={Sugestoes}/>
             <Route path="/perfil" component={Perfil}/>
+            <Route path="/grupo" component={GrupoChat}/>
+            <Route path="/grupo-info" component={GrupoInfo}/>
+            <Route path="/grupo-eventos" component={GrupoEventos}/>
             { /*<Route path="/grupos/:id" component={Grupo}/> */}
         </Switch>
     </BrowserRouter>

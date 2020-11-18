@@ -10,7 +10,7 @@ export default class Cadastro extends React.Component {
                 <div className="div-grid">
                     <div>
                         <img src="img/logo-v-p.png" />
-                        <h1 className="slogan">Quer conhecer pessoas com interesses iguais a você? O Agrupa pode te ajudar!</h1>
+                        <h1 className="slogan">Crie uma conta para conhecer pessoas novas e interagir em grupos de seu interesse!</h1>
                     </div>
                     <div>
                         <form>
