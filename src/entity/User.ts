@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, PrimaryColumn, ViewEntity, EntityRepository  } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, PrimaryColumn, ViewEntity, EntityRepository, ManyToMany, JoinTable  } from "typeorm";
+import { grouptable } from "./groupTable";
 
 @Entity()
 export class User{
@@ -10,7 +11,7 @@ export class User{
     api_key: string;
 
     @Column({ default: false})
-    isAdmin: boolean; //add default value as false
+    isAdmin: boolean;
 
     @Column({ nullable: false, unique: true })
     email: string;
