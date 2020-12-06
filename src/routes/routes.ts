@@ -1,11 +1,13 @@
 import { useContainer } from "typeorm";
 import * as uc from "../controller/UserController";
 import * as ac from "../controller/AuthController";
+import * as gc from "../controller/GroupController";
 import {checkDuplicateEmail} from '../middleware/verifySignUp';
 
 // let method = new uc.UserController;
 
 export const Routes = [{
+    //user
     method: "get",
     route: "/auth/users",
     controller: uc.UserController,
@@ -45,5 +47,18 @@ export const Routes = [{
     route: "/logIn",
     controller: ac.AuthController,
     action: "signIn"
+},{
+    method: "get",
+    route: "/logOut",
+    controller: ac.AuthController,
+    action: "signOut",
+    type: "userLogon"
+}, //group
+{
+    method: "put",
+    route: "/group/:id",
+    controller: gc.GroupController,
+    action: "update",
+    type: "authGroupAction"
 }
 ];
