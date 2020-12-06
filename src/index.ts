@@ -17,6 +17,28 @@ createConnection().then(async connection => {
     const app = express();
     app.use(bodyParser.json());
 
+    // setup express app here
+    const corsOptions: cors.CorsOptions = {
+        allowedHeaders: [
+            'Origin',
+            'X-Requested-With',
+            'Content-Type',
+            'Content-lenght',
+            'Host',
+            'User-Agent',
+            'Accept',
+            'Accept-Encoding',
+            'Connection',
+            'Authorization'
+        ],
+        credentials: true,
+        methods: 'GET, HEAD, OPRTIONS, PUT, PACH, POST, DELETE',
+        origin: 'http://localhost:3002',
+        preflightContinue: true
+    };
+
+    app.use(cors(corsOptions));    
+
     // Routes.forEach(middleware => {
     //     [middleware.route];
     //     });
@@ -51,7 +73,7 @@ createConnection().then(async connection => {
         }
         //user logado get user
         if(route.type=="userLogon" && route.method=="get"){
-            (app as any)[route.method](route.route, verifyToken,(req: Request, res: Response, next: Function) => {
+            (app as any)[route.method](route.route,(req: Request, res: Response, next: Function) => {
                 const result = (new (route.controller as any))[route.action](req, res, next);
                 if (result instanceof Promise) {
                     result.then(result => result !== null && result !== undefined ? res.send(result) : undefined);
@@ -98,36 +120,15 @@ createConnection().then(async connection => {
         }
         
     });
-
-    // setup express app here
-    const corsOptions: cors.CorsOptions = {
-        allowedHeaders: [
-            'Origin',
-            'X-Requested-With',
-            'Content-Type',
-            'Content-lenght',
-            'Host',
-            'User-Agent',
-            'Accept',
-            'Accept-Encoding',
-            'Connection',
-            'X-Acess-Token'
-        ],
-        credentials: true,
-        methods: 'GET, HEAD, OPRTIONS, PUT, PACH, POST, DELETE',
-        origin: 'http://localhost:3000',
-        preflightContinue: false
-    };
     
     dotenv.config({
         path: './.env'
     });
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
-    app.use(cors(corsOptions));    
 
     // start express server
-    app.listen(3000);
+    app.listen(8000);
 
     // insert new users for test
     // await connection.manager.save(connection.manager.create(User, {
