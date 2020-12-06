@@ -49,7 +49,7 @@ export default class Eventos extends React.Component {
                                 <img src="img/logo.png" />
                                 <h3>Idosas em Ação</h3>
                             </div>
-                            <a>Participar</a>
+                            <Link to="/grupo-eventos">Participar</Link>
                         </div>
                     </div>
                     <div className="card-grupo">
@@ -68,7 +68,7 @@ export default class Eventos extends React.Component {
                                 <img src="img/logo.png" />
                                 <h3>Valorant</h3>
                             </div>
-                            <a>Participar</a>
+                            <Link to="/grupo-eventos">Participar</Link>
                         </div>
                     </div>
                     <div className="card-grupo">
@@ -87,7 +87,7 @@ export default class Eventos extends React.Component {
                                 <img src="img/logo.png" />
                                 <h3>Dicas de Cozinha</h3>
                             </div>
-                            <a>Participar</a>
+                            <Link to="/grupo-eventos">Participar</Link>
                         </div>
                     </div>
                 </section>

@@ -8,6 +8,7 @@
     --azul: #0079C6;
     --preto: #191919;
     --branco: #FFFFFF;
+    --cinza-claro-fundo: #F8F8F8;
 }
 
 *{
@@ -21,6 +22,7 @@
 
 section.section-perfil{
     padding-top: 70px;
+    background: var(--cinza-claro-fundo);
 }
 
 section.section-perfil img.capa{

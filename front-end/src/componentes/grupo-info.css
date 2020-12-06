@@ -20,6 +20,10 @@
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
 
+div section.grupo-info-fundo{
+    background: var(--branco);
+}
+
 div section.section-perfil div.tags{
     display: flex;
     align-items: center;

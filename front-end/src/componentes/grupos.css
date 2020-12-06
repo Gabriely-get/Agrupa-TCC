@@ -104,7 +104,7 @@ div section.lista-grupos div.card-grupo h1{
     background: var(--salmao-medio);
     color: var(--branco);
     font-weight: 300;
-    padding: 0 2%;
+    padding: 0 5%;
     position: absolute;
     top: 39%;
     left: 50%;
@@ -113,6 +113,7 @@ div section.lista-grupos div.card-grupo h1{
     max-width: 100%;
     text-align: center;
     white-space: nowrap;
+    border-radius:100vh;
 }
 
 div section.lista-grupos div.card-grupo div.info-grupo div.tags{

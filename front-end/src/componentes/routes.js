@@ -10,7 +10,7 @@ import Perfil from "./perfil";
 import GrupoChat from "./grupo-chat";
 import GrupoInfo from "./grupo-info";
 import GrupoEventos from "./grupo-eventos";
-
+  
 const Routes = () => (
     <BrowserRouter>
         <Switch>

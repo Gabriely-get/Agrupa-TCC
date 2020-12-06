@@ -46,7 +46,7 @@ export default class Perfil extends React.Component {
                                 <img src="img/logo.png" />
                                 <h3>15 membros</h3>
                             </div>
-                            <a>Entrar</a>
+                            <Link to="/grupo">Entrar</Link>
                         </div>
                     </div>
                     <div className="card-grupo">
@@ -62,7 +62,7 @@ export default class Perfil extends React.Component {
                                 <img src="img/logo.png" />
                                 <h3>38 membros</h3>
                             </div>
-                            <a>Entrar</a>
+                            <Link to="/grupo">Entrar</Link>
                         </div>
                     </div>
                     <div className="card-grupo">
@@ -78,7 +78,7 @@ export default class Perfil extends React.Component {
                                 <img src="img/logo.png" />
                                 <h3>61 membros</h3>
                             </div>
-                            <a>Entrar</a>
+                            <Link to="/grupo">Entrar</Link>
                         </div>
                     </div>
                     <div className="card-grupo">
@@ -93,7 +93,7 @@ export default class Perfil extends React.Component {
                                 <img src="img/logo.png" />
                                 <h3>40 membros</h3>
                             </div>
-                            <a>Entrar</a>
+                            <Link to="/grupo">Entrar</Link>
                         </div>
                     </div>
                     <div className="card-grupo">
@@ -109,7 +109,7 @@ export default class Perfil extends React.Component {
                                 <img src="img/logo.png" />
                                 <h3>19 membros</h3>
                             </div>
-                            <a>Entrar</a>
+                            <Link to="/grupo">Entrar</Link>
                         </div>
                     </div>
                     <div className="card-grupo">
@@ -125,7 +125,7 @@ export default class Perfil extends React.Component {
                                 <img src="img/logo.png" />
                                 <h3>23 membros</h3>
                             </div>
-                            <a>Entrar</a>
+                            <Link to="/grupo">Entrar</Link>
                         </div>
                     </div>
                     <div className="card-grupo">
@@ -141,7 +141,7 @@ export default class Perfil extends React.Component {
                                 <img src="img/logo.png" />
                                 <h3>11 membros</h3>
                             </div>
-                            <a>Entrar</a>
+                            <Link to="/grupo">Entrar</Link>
                         </div>
                     </div>
                 </section>

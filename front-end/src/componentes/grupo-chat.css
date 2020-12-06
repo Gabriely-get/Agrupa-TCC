@@ -12,6 +12,7 @@
     --cinza-claro-hover: #eeeeee;
     --cinza-escuro: #E8E8E8;
     --cinza-escuro-hover: #dbdbdb;
+    --cinza-fundo: #e6e6e6;
 }
 
 *{
@@ -23,6 +24,10 @@
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
     list-style: none;
     text-decoration: none;
+}
+
+div.grupo-chat{
+    background: var(--cinza-fundo);
 }
 
 section.barra-digitar{
@@ -79,7 +84,8 @@ section.barra-digitar form label input[type="submit"]:hover{
 section.chat{
     position: relative;
     width: 92%;
-    margin: 130px auto 50px auto;
+    margin: 0 auto 0 auto;
+    padding: 130px 0 50px 0;
 }
 
 section.chat div.mensagem{
@@ -96,6 +102,22 @@ section.chat div.mensagem img{
 section.chat div.mensagem div{
     display: inline-block;
     margin-left: 1%;
+    background: var(--branco);
+    padding: 1%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+section.chat div.mensagem div:before{
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: -5px;
+    width: 10px;
+    height: 10px;
+    background: var(--branco);
+    transform: rotate(45deg);
 }
 
 section.chat div.mensagem div h1{

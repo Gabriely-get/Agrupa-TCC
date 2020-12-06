@@ -27,18 +27,28 @@ export default class Sugestoes extends React.Component {
                     </ul>
                 </header>
                 <section className="section-sugestoes">
-                        <form>
-                            <h1 className="titulo">Faça uma Sugestão</h1>
-                            <label>
-                                <h2>Assunto</h2>
-                                <input type="text" name="assunto" placeholder="Informe o assunto da sugestão..." />
-                            </label>
-                            <label>
-                                <h2>Sugestão</h2>
-                                <textarea type="text" name="sugestao" placeholder="Digite aqui sua sugestão..." />
-                            </label>
-                            <input type="submit" value="Enviar" className="btn-sugestao"/>
-                        </form>
+                    <div className="box">
+                        <div className="div-grid-sugestao">
+                            <div>
+                                <img src="img/logo-v-p.png" />
+                                <h1 className="slogan">Envie suas sugestões e ajude o Agrupa a ser cada vez melhor!</h1>
+                            </div>
+                            <div>
+                                <form className=" form-sugestao">
+                                    <h1 className="titulo">Faça uma Sugestão</h1>
+                                    <label>
+                                        <h2>Assunto</h2>
+                                        <input type="text" name="assunto" placeholder="Informe o assunto da sugestão..." />
+                                    </label>
+                                    <label>
+                                        <h2>Sugestão</h2>
+                                        <textarea type="text" name="sugestao" placeholder="Digite aqui sua sugestão..." />
+                                    </label>
+                                    <input type="submit" value="Enviar" className="btn-sugestao" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </div>
         );

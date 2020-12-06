@@ -44,7 +44,7 @@ export default class GrupoInfo extends React.Component {
                         </ul></li></Link>
                     </ul>
                 </section>
-                <section className="section-perfil">
+                <section className="section-perfil grupo-info-fundo">
                     <img src="img/capa-exemplo2.jpg" className="capa" />
                     <img src="img/grupo-exemplo1.jpg" className="perfil" />
                     <h1>Superonze</h1>
