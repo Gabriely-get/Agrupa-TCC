@@ -62,33 +62,38 @@ async function checkDuplicateCell(req: Request, res: Response, next?: NextFuncti
 }
 
 //middleware data de nascimento
-// async function checkDuplicateEmail(req: Request, res: Response, next?: NextFunction){
-//     // Email
-//   const userRepository = await getRepository(User);
+async function checkBirthDate(req: Request, res: Response, next?: NextFunction){
+    
+  const userRepository = await getRepository(User);
 
-//   return new Promise(async (resolve) => {
+  return new Promise(async (resolve) => {
       
-//       if(req.body.email == "" || req.body.email == null || req.body.email == undefined || req.body.email == "null"){
-//           return res.send({ message: 'O campo email deve ser preenchido!' });
-//       }
-//       else{
-//           const emailExists = await userRepository.createQueryBuilder("user")
-//                 .select()
-//                 .where("user.email = :ema", { ema: req.body.email })
-//                 .getOne();
-
-//           if(emailExists){
-//               return res.status(400).send({ message: 'Ja existe um usuario cadastrado com este email!'});
-//           }
-//           next();
-//       }
+      if(req.body.birthDate == "" || req.body.birthDate == null || req.body.birthDate == undefined || req.body.birthDate == "null"){
+          return res.send({ message: 'O campo data de nascimento deve ser preenchido!' });
+      }
+      else{
+        //   const date = req.body.birthDate;
+        //   let dateSplit = Date.now();
+        //   let dateSplit = split('/', date);
+        let date1 = new Date('2020/11/18');
+        let date2 = new Date(req.body.birthDate);
+        let timeDiff = Math.abs(date1.getTime() - date2.getTime());
+        let diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+          return res.send({ date: Date.now(), ne: diffDays, q: date2.getMonth(), we: date2.getDate(), fr: date2.getDay(), bg: date2.getFullYear() });
+        //   if(emailExists){
+        //       return res.status(400).send({ message: 'Ja existe um usuario cadastrado com este email!'});
+        //   }
+        //   next();
+      }
                 
-//   }).catch((err) => { res.status(500).send({ message: 'Houve um ero inesperado!' }); console.log(err); return;});
+  }).catch((err) => { res.status(500).send({ message: 'Houve um ero inesperado!' }); console.log(err); return;});
 
-// }      
+}      
 
 const verifysignup = { checkDuplicateEmail,
                        checkDuplicateNames,
-                       checkDuplicateCell };
+                       checkDuplicateCell,
+                       checkBirthDate     
+                    };
   
  export = verifysignup;
