@@ -1,62 +1,15 @@
 import React from 'react';
 import './grupos.css';
 import './header.css';
-import api from '../services/api';
 import { Link } from 'react-router-dom';
 
 
 
 export default class Grupos extends React.Component {
-
-    state = {
-        error: ""
-      };
-
-    handleSignIn = async e => {
-
-        e.preventDefault();
-          try {
-            // console.log('to aq 1');
-            const response = await api.get("/signOut");
-            // this.setState({
-            //   error: 
-            //   response.data.acessToken
-            //   });
-            // thiresponse.data.acessToken;
-            // login(t, t);
-            // console.log(response.data.message + ' ' + response.data.email + ' ' + response.data.acessToken);
-              console.log(response.data);
-            //   this.props.history.push("/grupos");
-            // }
-            // else{
-            //   console.log('pohaaa');
-            // }
-            
-            if(!(response.data.message == "Usuario deslogado!")){
-              this.props.history.push("/");
-              // const token = response.headers["x-access-token"];
-              // console.log(response.data.acessToken + ' ' + token);
-            } else{
-              console.log(response.data);
-              this.setState({
-                error: 
-                "Houve um erro inesperado mas não se preocupe, não é sua culpa!"
-              });
-            }
-
-          } catch (err) {
-            console.log("erro: " + err);
-            this.setState({
-              error:
-              "Houve um erro inesperado mas não se preocupe, não é sua culpa!"
-            });
-        }
-    };
-
     render() {
         return (
             <div>
-                <header>
+                <header className="menu-web">
                     <ul>
                         <Link to="/grupos"><li><img src="img/logo.png" /></li></Link>
                         <Link to="/grupos" className="pagina_atual"><li>Início</li></Link>
@@ -75,7 +28,24 @@ export default class Grupos extends React.Component {
                         <Link to="/" ><li><i class="fas fa-sign-out-alt"></i></li></Link>
                     </ul>
                 </header>
-                <label>{ this.state.error && <h3 id="loginError"> {this.state.error} </h3> }</label>
+                <header className="menu-mobile">
+                    <input type="checkbox" className="checkbox-menu" />
+                    <img src="img/menu-mobile.png" class="menu-hamburguer" />
+                    <Link to="/grupos"><li><img src="img/logo-h-p.png" /></li></Link>
+                    <ul className="menu-lateral">
+                        <Link to="/grupos"><li><img src="img/logo-h-p.png" /></li></Link>
+                        <Link to="/grupos" className="pagina_atual"><li>Início</li></Link>
+                        <Link><li><div className="i-grupos">Grupos<ul className="dropdown">
+                            <Link to="/grupo" ><li><img src="img/grupo-exemplo1.jpg" />Superonze</li></Link>
+                            <Link to="/grupo" ><li><img src="img/grupo-exemplo2.jpg" />Basqueteiros</li></Link>
+                            <Link to="/grupo" ><li><img src="img/grupo-exemplo3.jpg" />Fut Americano</li></Link>
+                            <Link to="/grupo" ><li><img src="img/grupo-exemplo4.jpg" />Overwatch</li></Link>
+                            <Link to="/grupo" ><li><img src="img/grupo-exemplo5.jpg" />Star Wars</li></Link>
+                        </ul><i class="fas fa-caret-down"></i></div></li></Link>
+                        <Link to="/eventos" ><li>Eventos</li></Link>
+                        <Link to="/sugestoes" ><li>Sugestões</li></Link>
+                    </ul>
+                </header>
                 <section className="pesquisa">
                     <a>Criar Grupo</a>
                     <input type="checkbox" className="checkbox-modal" />
