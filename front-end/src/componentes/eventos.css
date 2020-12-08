@@ -26,6 +26,23 @@ div section.pesquisa form label input.pesquisa-eventos{
     border-radius: 100vh;
     border: 2px solid var(--preto);
     outline: none;
+    transition: 0.2s;
+}
+
+div section.pesquisa form label input:focus{
+    border: 2px solid var(--azul);
+}
+
+div section.pesquisa form label input:focus ~ i{
+    color: var(--azul);
+}
+
+div section.pesquisa form label i{
+    position: absolute;
+    top: 50%;
+    left: 1.5%;
+    transform: translate(-1.5%, -50%);
+    transition: 0.2s;
 }
 
 div section.lista-grupos div.card-grupo div.info-grupo div.tags-eventos{

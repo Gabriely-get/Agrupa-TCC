@@ -33,6 +33,7 @@ export default class GrupoInfo extends React.Component {
                         <Link to="/grupo-eventos"><li>Eventos</li></Link>
                     </ul>
                     <ul>
+                        <input type="checkbox" className="checkbox-notificacao" />
                         <Link><li><i class="far fa-bell i-notificacao"></i><ul className="notificacoes">
                             <Link to="/grupo"><i class="fas fa-poll"></i><li>A enquete de Roberto Almeida foi encerrada</li></Link>
                             <Link to="/grupo-eventos"><i class="far fa-calendar-check"></i><li>O evento Gartic Especial irá iniciar</li></Link>
@@ -56,48 +57,312 @@ export default class GrupoInfo extends React.Component {
                     <div className="membros">
                         <h1>Membros</h1>
                         <div className="membro">
-                            <img src="img/icon-user.png"/>
+                            <img src="img/icon-user.png" />
                             <h2>Laura Figueiredo</h2>
                             <h3>Administrador</h3>
                             <i class="fas fa-ellipsis-h"></i>
+                            <input type="checkbox" className="checkbox-user" />
+                            <ul className="funcoes">
+                                <li>Denunciar<i class="fas fa-exclamation"></i>
+                                    <input type="checkbox" className="checkbox-denuncia" />
+                                    <div className="modal-denuncia">
+                                        <h1>Motivo da denúncia</h1>
+                                        <form className="form-denuncia">
+                                            <div>
+                                                <textarea type="text" name="denuncia" placeholder="Motivo da denúncia..." />
+                                                <label for="print"><i class="far fa-image"></i>Anexar Print</label>
+                                                <input type="file" id="print" />
+                                            </div>
+                                            <input type="submit" value="Denunciar" />
+                                        </form>
+                                    </div>
+                                </li>
+                                <li>Expulsar<i class="fas fa-times"></i>
+                                    <input type="checkbox" className="checkbox-expulsao" />
+
+                                    <div className="modal-expulsao">
+                                        <h1>Motivo da expulsão</h1>
+                                        <form className="form-expulsao">
+                                            <div>
+                                                <textarea type="text" name="expulsao" placeholder="Motivo da expulsão..." />
+                                                <label for="print"><i class="far fa-image"></i>Anexar Print</label>
+                                                <input type="file" id="print" />
+                                            </div>
+                                            <input type="submit" value="Expulsar" />
+                                        </form>
+                                    </div>
+                                </li>
+                                <li>Tornar Administrador<i class="fas fa-user-cog"></i></li>
+                            </ul>
                         </div>
                         <div className="membro">
-                            <img src="img/icon-user.png"/>
+                            <img src="img/icon-user.png" />
                             <h2>Roberto Almeida</h2>
                             <h3>Administrador</h3>
                             <i class="fas fa-ellipsis-h"></i>
+                            <input type="checkbox" className="checkbox-user" />
+                            <ul className="funcoes">
+                                <li>Denunciar<i class="fas fa-exclamation"></i>
+                                    <input type="checkbox" className="checkbox-denuncia" />
+                                    <div className="modal-denuncia">
+                                        <h1>Motivo da denúncia</h1>
+                                        <form className="form-denuncia">
+                                            <div>
+                                                <textarea type="text" name="denuncia" placeholder="Motivo da denúncia..." />
+                                                <label for="print"><i class="far fa-image"></i>Anexar Print</label>
+                                                <input type="file" id="print" />
+                                            </div>
+                                            <input type="submit" value="Denunciar" />
+                                        </form>
+                                    </div>
+                                </li>
+                                <li>Expulsar<i class="fas fa-times"></i>
+                                    <input type="checkbox" className="checkbox-expulsao" />
+
+                                    <div className="modal-expulsao">
+                                        <h1>Motivo da expulsão</h1>
+                                        <form className="form-expulsao">
+                                            <div>
+                                                <textarea type="text" name="expulsao" placeholder="Motivo da expulsão..." />
+                                                <label for="print"><i class="far fa-image"></i>Anexar Print</label>
+                                                <input type="file" id="print" />
+                                            </div>
+                                            <input type="submit" value="Expulsar" />
+                                        </form>
+                                    </div>
+                                </li>
+                                <li>Tornar Administrador<i class="fas fa-user-cog"></i></li>
+                            </ul>
                         </div>
                         <div className="membro">
-                            <img src="img/icon-user.png"/>
+                            <img src="img/icon-user.png" />
                             <h2>Enzo Soares</h2>
                             <h3>Administrador</h3>
                             <i class="fas fa-ellipsis-h"></i>
+                            <input type="checkbox" className="checkbox-user" />
+                            <ul className="funcoes">
+                                <li>Denunciar<i class="fas fa-exclamation"></i>
+                                    <input type="checkbox" className="checkbox-denuncia" />
+                                    <div className="modal-denuncia">
+                                        <h1>Motivo da denúncia</h1>
+                                        <form className="form-denuncia">
+                                            <div>
+                                                <textarea type="text" name="denuncia" placeholder="Motivo da denúncia..." />
+                                                <label for="print"><i class="far fa-image"></i>Anexar Print</label>
+                                                <input type="file" id="print" />
+                                            </div>
+                                            <input type="submit" value="Denunciar" />
+                                        </form>
+                                    </div>
+                                </li>
+                                <li>Expulsar<i class="fas fa-times"></i>
+                                    <input type="checkbox" className="checkbox-expulsao" />
+
+                                    <div className="modal-expulsao">
+                                        <h1>Motivo da expulsão</h1>
+                                        <form className="form-expulsao">
+                                            <div>
+                                                <textarea type="text" name="expulsao" placeholder="Motivo da expulsão..." />
+                                                <label for="print"><i class="far fa-image"></i>Anexar Print</label>
+                                                <input type="file" id="print" />
+                                            </div>
+                                            <input type="submit" value="Expulsar" />
+                                        </form>
+                                    </div>
+                                </li>
+                                <li>Tornar Administrador<i class="fas fa-user-cog"></i></li>
+                            </ul>
                         </div>
                         <div className="membro">
-                            <img src="img/icon-user.png"/>
+                            <img src="img/icon-user.png" />
                             <h2>Mariana Peixoto</h2>
                             <h3>Administrador</h3>
                             <i class="fas fa-ellipsis-h"></i>
+                            <input type="checkbox" className="checkbox-user" />
+                            <ul className="funcoes">
+                                <li>Denunciar<i class="fas fa-exclamation"></i>
+                                    <input type="checkbox" className="checkbox-denuncia" />
+                                    <div className="modal-denuncia">
+                                        <h1>Motivo da denúncia</h1>
+                                        <form className="form-denuncia">
+                                            <div>
+                                                <textarea type="text" name="denuncia" placeholder="Motivo da denúncia..." />
+                                                <label for="print"><i class="far fa-image"></i>Anexar Print</label>
+                                                <input type="file" id="print" />
+                                            </div>
+                                            <input type="submit" value="Denunciar" />
+                                        </form>
+                                    </div>
+                                </li>
+                                <li>Expulsar<i class="fas fa-times"></i>
+                                    <input type="checkbox" className="checkbox-expulsao" />
+
+                                    <div className="modal-expulsao">
+                                        <h1>Motivo da expulsão</h1>
+                                        <form className="form-expulsao">
+                                            <div>
+                                                <textarea type="text" name="expulsao" placeholder="Motivo da expulsão..." />
+                                                <label for="print"><i class="far fa-image"></i>Anexar Print</label>
+                                                <input type="file" id="print" />
+                                            </div>
+                                            <input type="submit" value="Expulsar" />
+                                        </form>
+                                    </div>
+                                </li>
+                                <li>Tornar Administrador<i class="fas fa-user-cog"></i></li>
+                            </ul>
                         </div>
                         <div className="membro">
-                            <img src="img/icon-user.png"/>
+                            <img src="img/icon-user.png" />
                             <h2>Julia Azevedo</h2>
                             <i class="fas fa-ellipsis-h"></i>
+                            <input type="checkbox" className="checkbox-user" />
+                            <ul className="funcoes">
+                                <li>Denunciar<i class="fas fa-exclamation"></i>
+                                    <input type="checkbox" className="checkbox-denuncia" />
+                                    <div className="modal-denuncia">
+                                        <h1>Motivo da denúncia</h1>
+                                        <form className="form-denuncia">
+                                            <div>
+                                                <textarea type="text" name="denuncia" placeholder="Motivo da denúncia..." />
+                                                <label for="print"><i class="far fa-image"></i>Anexar Print</label>
+                                                <input type="file" id="print" />
+                                            </div>
+                                            <input type="submit" value="Denunciar" />
+                                        </form>
+                                    </div>
+                                </li>
+                                <li>Expulsar<i class="fas fa-times"></i>
+                                    <input type="checkbox" className="checkbox-expulsao" />
+
+                                    <div className="modal-expulsao">
+                                        <h1>Motivo da expulsão</h1>
+                                        <form className="form-expulsao">
+                                            <div>
+                                                <textarea type="text" name="expulsao" placeholder="Motivo da expulsão..." />
+                                                <label for="print"><i class="far fa-image"></i>Anexar Print</label>
+                                                <input type="file" id="print" />
+                                            </div>
+                                            <input type="submit" value="Expulsar" />
+                                        </form>
+                                    </div>
+                                </li>
+                                <li>Tornar Administrador<i class="fas fa-user-cog"></i></li>
+                            </ul>
                         </div>
                         <div className="membro">
-                            <img src="img/icon-user.png"/>
+                            <img src="img/icon-user.png" />
                             <h2>Marcos Pereira</h2>
                             <i class="fas fa-ellipsis-h"></i>
+                            <input type="checkbox" className="checkbox-user" />
+                            <ul className="funcoes">
+                                <li>Denunciar<i class="fas fa-exclamation"></i>
+                                    <input type="checkbox" className="checkbox-denuncia" />
+                                    <div className="modal-denuncia">
+                                        <h1>Motivo da denúncia</h1>
+                                        <form className="form-denuncia">
+                                            <div>
+                                                <textarea type="text" name="denuncia" placeholder="Motivo da denúncia..." />
+                                                <label for="print"><i class="far fa-image"></i>Anexar Print</label>
+                                                <input type="file" id="print" />
+                                            </div>
+                                            <input type="submit" value="Denunciar" />
+                                        </form>
+                                    </div>
+                                </li>
+                                <li>Expulsar<i class="fas fa-times"></i>
+                                    <input type="checkbox" className="checkbox-expulsao" />
+
+                                    <div className="modal-expulsao">
+                                        <h1>Motivo da expulsão</h1>
+                                        <form className="form-expulsao">
+                                            <div>
+                                                <textarea type="text" name="expulsao" placeholder="Motivo da expulsão..." />
+                                                <label for="print"><i class="far fa-image"></i>Anexar Print</label>
+                                                <input type="file" id="print" />
+                                            </div>
+                                            <input type="submit" value="Expulsar" />
+                                        </form>
+                                    </div>
+                                </li>
+                                <li>Tornar Administrador<i class="fas fa-user-cog"></i></li>
+                            </ul>
                         </div>
                         <div className="membro">
-                            <img src="img/icon-user.png"/>
+                            <img src="img/icon-user.png" />
                             <h2>Victor Vieira</h2>
                             <i class="fas fa-ellipsis-h"></i>
+                            <input type="checkbox" className="checkbox-user" />
+                            <ul className="funcoes">
+                                <li>Denunciar<i class="fas fa-exclamation"></i>
+                                    <input type="checkbox" className="checkbox-denuncia" />
+                                    <div className="modal-denuncia">
+                                        <h1>Motivo da denúncia</h1>
+                                        <form className="form-denuncia">
+                                            <div>
+                                                <textarea type="text" name="denuncia" placeholder="Motivo da denúncia..." />
+                                                <label for="print"><i class="far fa-image"></i>Anexar Print</label>
+                                                <input type="file" id="print" />
+                                            </div>
+                                            <input type="submit" value="Denunciar" />
+                                        </form>
+                                    </div>
+                                </li>
+                                <li>Expulsar<i class="fas fa-times"></i>
+                                    <input type="checkbox" className="checkbox-expulsao" />
+
+                                    <div className="modal-expulsao">
+                                        <h1>Motivo da expulsão</h1>
+                                        <form className="form-expulsao">
+                                            <div>
+                                                <textarea type="text" name="expulsao" placeholder="Motivo da expulsão..." />
+                                                <label for="print"><i class="far fa-image"></i>Anexar Print</label>
+                                                <input type="file" id="print" />
+                                            </div>
+                                            <input type="submit" value="Expulsar" />
+                                        </form>
+                                    </div>
+                                </li>
+                                <li>Tornar Administrador<i class="fas fa-user-cog"></i></li>
+                            </ul>
                         </div>
                         <div className="membro">
-                            <img src="img/icon-user.png"/>
+                            <img src="img/icon-user.png" />
                             <h2>Leonardo Garcia</h2>
                             <i class="fas fa-ellipsis-h"></i>
+                            <input type="checkbox" className="checkbox-user" />
+                            <ul className="funcoes">
+                                <li>Denunciar<i class="fas fa-exclamation"></i>
+                                    <input type="checkbox" className="checkbox-denuncia" />
+                                    <div className="modal-denuncia">
+                                        <h1>Motivo da denúncia</h1>
+                                        <form className="form-denuncia">
+                                            <div>
+                                                <textarea type="text" name="denuncia" placeholder="Motivo da denúncia..." />
+                                                <label for="print"><i class="far fa-image"></i>Anexar Print</label>
+                                                <input type="file" id="print" />
+                                            </div>
+                                            <input type="submit" value="Denunciar" />
+                                        </form>
+                                    </div>
+                                </li>
+                                <li>Expulsar<i class="fas fa-times"></i>
+                                    <input type="checkbox" className="checkbox-expulsao" />
+
+                                    <div className="modal-expulsao">
+                                        <h1>Motivo da expulsão</h1>
+                                        <form className="form-expulsao">
+                                            <div>
+                                                <textarea type="text" name="expulsao" placeholder="Motivo da expulsão..." />
+                                                <label for="print"><i class="far fa-image"></i>Anexar Print</label>
+                                                <input type="file" id="print" />
+                                            </div>
+                                            <input type="submit" value="Expulsar" />
+                                        </form>
+                                    </div>
+                                </li>
+                                <li>Tornar Administrador<i class="fas fa-user-cog"></i></li>
+                            </ul>
                         </div>
                     </div>
                     <Link to="/grupos">Sair do grupo<i class="fas fa-sign-out-alt"></i></Link>

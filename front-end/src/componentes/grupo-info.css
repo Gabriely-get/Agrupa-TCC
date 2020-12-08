@@ -57,6 +57,7 @@ div section.section-perfil div.membros div.membro{
     margin-top: 2%;
     height: 40px;
     display: flex;
+    position: relative;
 }
 
 div section.section-perfil div.membros div.membro img{
@@ -100,6 +101,306 @@ div section.section-perfil div.membros div.membro i{
     display: block;
     color: var(--preto);
     cursor: pointer;
+}
+
+div section.section-perfil div.membros div.membro input.checkbox-user{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    left: 100%;
+    transform: translate(-100%, -50%);
+    opacity: 0;
+    cursor: pointer;
+}
+
+div section.section-perfil div.membros div.membro input.checkbox-user:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+div section.section-perfil div.membros div.membro input.checkbox-user:checked ~ ul{
+    display: block;
+}
+
+div section.section-perfil div.membros div.membro ul{
+    background: green;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 30%;
+    white-space: nowrap;
+    margin-left: 1%;
+    box-shadow: 5px 5px 10px #00000050;
+    display: none;
+}
+
+div section.section-perfil div.membros div.membro ul li{
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+div section.section-perfil div.membros div.membro ul li:nth-child(2n){
+    background: var(--cinza-claro);
+}
+
+div section.section-perfil div.membros div.membro ul li:nth-child(2n+1){
+    background: var(--cinza-escuro);
+}
+
+div section.section-perfil div.membros div.membro ul li:hover{
+    background: var(--cinza-escuro-hover);
+}
+
+div section.section-perfil div.membros div.membro ul li input.checkbox-denuncia{
+    position: absolute;
+    width: 100%;
+    height: 33%;
+    top: 15%;
+    left: 100%;
+    transform: translate(-100%, -50%);
+    opacity: 0;
+    cursor: pointer;
+}
+
+div section.section-perfil div.membros div.membro ul li input.checkbox-denuncia:before{
+    content: '';
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+div section.section-perfil div.membros div.membro ul li input.checkbox-denuncia:checked ~ div.modal-denuncia{
+    display: block;
+}
+
+div section.section-perfil div.membros div.membro ul li input.checkbox-denuncia:checked:before{
+    content: 'X';
+    font-size: 1.5em;
+    line-height: 100%;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--branco);
+    border-radius: 100vh;
+    padding: 20%;
+}
+
+div section.section-perfil div.membros div.membro ul li div.modal-denuncia{
+    position: fixed;
+    background: var(--branco);
+    z-index: 999999999;
+    border-radius: 45px;
+    height: 55vh;
+    width: 50%;
+    padding: 2% 5%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.25);
+    display: none;
+}
+
+div section.section-perfil div.membros div.membro ul li div.modal-denuncia h1{
+    font-size: 1.5em;
+    font-weight: 500;
+    text-align: center;
+}
+
+div section.section-perfil div.membros div.membro ul li div.modal-denuncia form div textarea{
+    width: 100%;
+    text-align: left;
+    padding: 0.5% 4%;
+    border-radius: 10px;
+    height: 100px;
+    border: 1px solid var(--preto);
+    outline: none;
+    margin-bottom: 1%;
+    transition: 0.2s;
+    resize: none;
+}
+
+div section.section-perfil div.membros div.membro ul li div.modal-denuncia form div label{
+    display: flex;
+    align-items: center;
+    background: var(--cinza-escuro-hover);
+    border: none;
+    padding: 0% 2%;
+    border-radius: 100vh;
+    cursor: pointer;
+}
+
+div section.section-perfil div.membros div.membro ul li div.modal-denuncia form div label i{
+    font-size: 2em;
+    margin-right: 5%;
+}
+
+div section.section-perfil div.membros div.membro ul li div.modal-denuncia form div input[type="file"]{
+    display: none;
+}
+
+div section.section-perfil div.membros div.membro ul li div.modal-denuncia form input[type="submit"]{
+    background: var(--azul);
+    color: var(--branco);
+    display: block;
+    border: none;
+    outline: none;
+    padding: 2% 10%; 
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 300;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -90%);
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: center;
+    width: 300px;
+}
+
+div section.section-perfil div.membros div.membro ul li div.modal-denuncia form input[type="submit"]:hover{
+    background: var(--cinza-medio);
+    color: var(--azul);
+}
+
+div section.section-perfil div.membros div.membro ul li input.checkbox-expulsao{
+    position: absolute;
+    width: 100%;
+    height: 33%;
+    top: 48%;
+    left: 100%;
+    transform: translate(-100%, -50%);
+    opacity: 0;
+    cursor: pointer;
+}
+
+div section.section-perfil div.membros div.membro ul li input.checkbox-expulsao:before{
+    content: '';
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:purple;
+}
+
+div section.section-perfil div.membros div.membro ul li input.checkbox-expulsao:checked ~ div.modal-expulsao{
+    display: block;
+}
+
+div section.section-perfil div.membros div.membro ul li input.checkbox-expulsao:checked:before{
+    content: 'X';
+    font-size: 1.5em;
+    line-height: 100%;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--branco);
+    border-radius: 100vh;
+    padding: 20%;
+}
+
+div section.section-perfil div.membros div.membro ul li div.modal-expulsao{
+    position: fixed;
+    background: var(--branco);
+    z-index: 999999999;
+    border-radius: 45px;
+    height: 55vh;
+    width: 50%;
+    padding: 2% 5%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.25);
+    display: none;
+}
+
+div section.section-perfil div.membros div.membro ul li div.modal-expulsao h1{
+    font-size: 1.5em;
+    font-weight: 500;
+    text-align: center;
+}
+
+div section.section-perfil div.membros div.membro ul li div.modal-expulsao form div textarea{
+    width: 100%;
+    text-align: left;
+    padding: 0.5% 4%;
+    border-radius: 10px;
+    height: 100px;
+    border: 1px solid var(--preto);
+    outline: none;
+    margin-bottom: 1%;
+    transition: 0.2s;
+    resize: none;
+}
+
+div section.section-perfil div.membros div.membro ul li div.modal-expulsao form div label{
+    display: flex;
+    align-items: center;
+    background: var(--cinza-escuro-hover);
+    border: none;
+    padding: 0% 2%;
+    border-radius: 100vh;
+    cursor: pointer;
+}
+
+div section.section-perfil div.membros div.membro ul li div.modal-expulsao form div label i{
+    font-size: 2em;
+    margin-right: 5%;
+}
+
+div section.section-perfil div.membros div.membro ul li div.modal-expulsao form div input[type="file"]{
+    display: none;
+}
+
+div section.section-perfil div.membros div.membro ul li div.modal-expulsao form input[type="submit"]{
+    background: var(--azul);
+    color: var(--branco);
+    display: block;
+    border: none;
+    outline: none;
+    padding: 2% 10%; 
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 300;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -90%);
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: center;
+    width: 300px;
+}
+
+div section.section-perfil div.membros div.membro ul li div.modal-expulsao form input[type="submit"]:hover{
+    background: var(--cinza-medio);
+    color: var(--azul);
+}
+
+div section.section-perfil div.membros div.membro ul li i{
+    padding: 1%;
+    width: 25px;
 }
 
 div section.section-perfil a{

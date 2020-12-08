@@ -3,6 +3,9 @@ import './login.css';
 import { Link } from 'react-router-dom';
 import api from "../services/api";
 import {login} from '../services/auth';
+import { ErrorMessage, Formik, Form, Field } from 'formik';
+import * as yup from 'yup';
+import axios from 'axios';
 
 export default class Login extends React.Component {
 
@@ -24,8 +27,7 @@ export default class Login extends React.Component {
             this.props.history.push("/grupos");
           } catch (err) {
             this.setState({
-              error:
-                "Houve um problema com o login, verifique suas credenciais. T.T"
+              error: "Houve um problema com o login, verifique suas credenciais. T.T"
             });
           }
         }
@@ -46,11 +48,11 @@ export default class Login extends React.Component {
                             <h1 className="titulo">Faça seu Login</h1>
                             <label className="label-email">
                                 E-mail
-                                <input type="email" name="email" onChange={e => this.setState({ email: e.target.value })}/>
+                                <input required type="email" name="email" onChange={e => this.setState({ email: e.target.value })}/>
                             </label>
                             <label>
                                 Senha
-                                <input type="password" name="senha" onChange={e => this.setState({ senha: e.target.value })}/>
+                                <input required type="password" name="senha" onChange={e => this.setState({ senha: e.target.value })}/>
                                 <a>Esqueci minha senha</a>
                             </label>
                             <input type="submit" value="Entrar" className="entrar"/>

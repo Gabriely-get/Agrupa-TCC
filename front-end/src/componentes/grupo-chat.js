@@ -33,15 +33,17 @@ export default class GrupoChat extends React.Component {
                         <Link to="/grupo-eventos"><li>Eventos</li></Link>
                     </ul>
                     <ul>
-                        <Link><li><i class="far fa-bell i-notificacao"></i><ul className="notificacoes">
-                            <Link to="/grupo"><i class="fas fa-poll"></i><li>A enquete de Roberto Almeida foi encerrada</li></Link>
-                            <Link to="/grupo-eventos"><i class="far fa-calendar-check"></i><li>O evento Gartic Especial irá iniciar</li></Link>
-                            <Link to="/grupo"><i class="fas fa-poll"></i><li>Roberto Almeida criou uma enquete</li></Link>
-                            <Link to="/grupo-info"><i class="fas fa-user-minus"></i><li>Laura Figueiredo expulsou Maria da Luz</li></Link>
-                            <Link to="/grupo-info"><i class="fas fa-user-minus"></i><li>Enzo Soares expulsou Janaina Fonseca</li></Link>
-                            <Link to="/grupo-info"><i class="fas fa-user-cog"></i><li>Enzo Soares agora é um administrador!</li></Link>
-                            <Link to="/grupo-eventos"><i class="far fa-calendar-alt"></i><li>Mariano Peixoto criou o evento Assistir Super Onze</li></Link>
-                        </ul></li></Link>
+                        <input type="checkbox" className="checkbox-notificacao" />
+                        <Link><li><i class="far fa-bell i-notificacao"></i>
+                            <ul className="notificacoes">
+                                <Link to="/grupo"><i class="fas fa-poll"></i><li>A enquete de Roberto Almeida foi encerrada</li></Link>
+                                <Link to="/grupo-eventos"><i class="far fa-calendar-check"></i><li>O evento Gartic Especial irá iniciar</li></Link>
+                                <Link to="/grupo"><i class="fas fa-poll"></i><li>Roberto Almeida criou uma enquete</li></Link>
+                                <Link to="/grupo-info"><i class="fas fa-user-minus"></i><li>Laura Figueiredo expulsou Maria da Luz</li></Link>
+                                <Link to="/grupo-info"><i class="fas fa-user-minus"></i><li>Enzo Soares expulsou Janaina Fonseca</li></Link>
+                                <Link to="/grupo-info"><i class="fas fa-user-cog"></i><li>Enzo Soares agora é um administrador!</li></Link>
+                                <Link to="/grupo-eventos"><i class="far fa-calendar-alt"></i><li>Mariano Peixoto criou o evento Assistir Super Onze</li></Link>
+                            </ul></li></Link>
                     </ul>
                 </section>
                 <section className="chat">
@@ -97,7 +99,26 @@ export default class GrupoChat extends React.Component {
                     </div>
                 </section>
                 <section className="barra-digitar">
-                    <form>
+                    <input type="checkbox" className="checkbox-enquete" />
+                    <div className="modal-criar-enquete">
+                        <h1>Criar uma enquete</h1>
+                        <form className="form-criar-enquete">
+                            <div>
+                                <label>Pergunta
+                                    <input type="text" name="pergunta-enquete" placeholder="Ex.: Você recomendaria o Agrupa para seus amigos?"/>
+                                </label>
+                                <div>
+                                    <label>Opções
+                                        <input type="text" name="opcao-enquete" placeholder="Sim"/>
+                                        <input type="text" name="opcao-enquete" placeholder="Não" />
+                                    </label>
+                                    <button>Adicionar Opção</button>
+                                </div>
+                            </div>
+                            <input type="submit" value="Criar Enquete" />
+                        </form>
+                    </div>
+                    <form className="barra-digitar">
                         <label><i class="far fa-image"></i><i class="fas fa-poll"></i>
                             <input type="text" name="enviar-msg" placeholder="Digite uma mensagem..."></input>
                             <input type="submit" value="Enviar" name="btn-enviar-msg"></input>

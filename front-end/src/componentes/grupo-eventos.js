@@ -33,6 +33,7 @@ export default class GrupoEventos extends React.Component {
                         <Link to="/grupo-eventos" className="pagina_atual" ><li>Eventos</li></Link>
                     </ul>
                     <ul>
+                        <input type="checkbox" className="checkbox-notificacao" />
                         <Link><li><i class="far fa-bell i-notificacao"></i><ul className="notificacoes">
                             <Link to="/grupo"><i class="fas fa-poll"></i><li>A enquete de Roberto Almeida foi encerrada</li></Link>
                             <Link to="/grupo-eventos"><i class="far fa-calendar-check"></i><li>O evento Gartic Especial irá iniciar</li></Link>
@@ -111,6 +112,48 @@ export default class GrupoEventos extends React.Component {
                         </div>
                     </div>
                 </section>
+                <input type="checkbox" className="checkbox-evento" />
+                <div className="modal-criar-evento">
+                    <form className="form-criar-evento">
+                        <input type="file" name="imagem-grupo" />
+                        <div className="margin-top">
+                            <div className="inputs">
+                                <label>
+                                    Nome
+                                <input type="text" name="nome" />
+                                </label>
+                                <label>
+                                    Local
+                                <input type="text" name="sobrenome" />
+                                </label>
+                            </div>
+                            <div className="inputs">
+                                <label>
+                                    Data
+                                <input type="date" name="nome" />
+                                </label>
+                                <label>
+                                    Hora
+                                <input type="time" name="sobrenome" />
+                                </label>
+                            </div>
+                            <div className="inputs">
+                                <label>
+                                    Categoria
+                                <input type="text" name="nome" />
+                                </label>
+                                <label>
+                                    Subcategorias
+                                <input type="text" name="sobrenome" />
+                                </label>
+                            </div>
+                            <label>Descrição
+                                <textarea type="text" name="sugestao" placeholder="Digite aqui sua sugestão..." />
+                            </label>
+                        </div>
+                        <input type="submit" value="Criar evento" />
+                    </form>
+                </div>
             </div>
         );
     }
