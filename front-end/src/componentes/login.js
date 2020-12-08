@@ -47,7 +47,7 @@ export default class Login extends React.Component {
             
             if(response.data.message == "Usuario logado"){
               console.log(response.data);
-              // return this.props.history.push("/grupos");
+              return this.props.history.push("/grupos");
               // const token = response.headers["x-access-token"];
               // console.log(response.data.acessToken + ' ' + token);
             } else{

@@ -12,7 +12,11 @@
     --cinza-claro-pagina-atual: #EBEBEB;
 }
 
-div header{
+div header.menu-mobile{
+    display: none;
+}
+
+div header.menu-web{
     height: 70px;
     width: 100vw;
     background: var(--branco);
@@ -24,12 +28,12 @@ div header{
     top: 0;
 }
 
-div header ul{
+div header.menu-web ul{
     display: flex;
     align-items: center;
 }
 
-div header ul a{
+div header.menu-web ul a{
     display: inline-block;
     margin-left: 5%;
     padding: 0 5%;
@@ -43,36 +47,36 @@ div header ul a{
     color: var(--preto);
 }
 
-div header ul:first-child a:hover, div header ul:first-child a li div.i-grupos ul.dropdown a:hover{
+div header.menu-web ul:first-child a:hover, div header.menu-web ul:first-child a li div.i-grupos ul.dropdown a:hover{
     cursor: pointer;
     background: var(--cinza-claro-pagina-atual);
 }
 
-div header ul:first-child a:first-child:hover{
+div header.menu-web ul:first-child a:first-child:hover{
     cursor: pointer;
     background: var(--branco);
 }
 
-div header ul a.pagina_atual{
+div header.menu-web ul a.pagina_atual{
     background: var(--cinza-claro-pagina-atual);
 }
 
-div header ul a li img{
+div header.menu-web ul a li img{
     height: 8vh;
     margin: 1.5vh;
 }
 
-div header ul a li .i-grupos{
+div header.menu-web ul a li .i-grupos{
     display: flex;
     align-items: center;
 }
 
-div header ul a li .i-grupos i{
+div header.menu-web ul a li .i-grupos i{
     margin-left: 10%;
     font-size: 20px;
 }
 
-div header ul:first-child a li div.i-grupos ul.dropdown{
+div header.menu-web ul:first-child a li div.i-grupos ul.dropdown{
     position: absolute;
     background: var(--branco);
     top: 100%;
@@ -84,11 +88,11 @@ div header ul:first-child a li div.i-grupos ul.dropdown{
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
 }
 
-div header ul:first-child a li div.i-grupos:hover ul.dropdown{
+div header.menu-web ul:first-child a li div.i-grupos:hover ul.dropdown{
     display: flex;
 }
 
-div header ul:first-child a li div.i-grupos ul.dropdown a{
+div header.menu-web ul:first-child a li div.i-grupos ul.dropdown a{
     display: block;
     width: 100%;
     margin-left: 0;
@@ -97,52 +101,266 @@ div header ul:first-child a li div.i-grupos ul.dropdown a{
     line-height: 1em;
 }
 
-div header ul:first-child a li div.i-grupos ul.dropdown a li{
+div header.menu-web ul:first-child a li div.i-grupos ul.dropdown a li{
     display: flex;
     align-items: center;
 }
 
-div header ul:first-child a li div.i-grupos ul.dropdown a li img{
+div header.menu-web ul:first-child a li div.i-grupos ul.dropdown a li img{
     width: 3.5vh;
     height: 3.5vh;
     object-fit: cover;
     border-radius: 100%;
 }
 
-div header ul:first-child a li div.i-grupos ul.dropdown a:first-child{
+div header.menu-web ul:first-child a li div.i-grupos ul.dropdown a:first-child{
     box-shadow: inset 0px 5px 5px -2px rgba(0, 0, 0, 0.25);
 }
 
-div header ul:last-child{
+div header.menu-web ul:last-child{
     position: relative;
 }
 
-div header ul:last-child a:first-child{
+div header.menu-web ul:last-child a:first-child{
     position: absolute;
     top: 0;
     right: 90%;
     transform: translate(-90%, -0%);
 }
 
-div header ul:last-child a:last-child{
+div header.menu-web ul:last-child a:last-child{
     position: absolute;
     top: 0;
     right: 110%;
     transform: translate(-110%, -0%);
 }
 
-div header ul:last-child a li img{
+div header.menu-web ul:last-child a li img{
     border-radius: 100vh;
     width: 8vh;
     height: 8vh;
     object-fit: cover;
 }
 
-div header ul:last-child a li i{
+div header.menu-web ul:last-child a li i{
     font-size: 25px;
     vertical-align: -5px;
 }
 
+/*MENU MOBILE*/
+
+div header.menu-mobile input.checkbox-menu{
+    position: absolute;
+    width: 50px;
+    height: 40px;
+    top: 50%;
+    left: 5%;
+    transform: translate(-5%, -50%);
+    opacity: 0;
+    cursor: pointer;
+    z-index: 99999;
+}
+
+div header.menu-mobile input.checkbox-menu:before{
+    top: 0;
+    left: 0;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+div header.menu-mobile input.checkbox-menu:checked ~ ul.menu-lateral{
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+}
+
+div header.menu-mobile input.checkbox-menu:checked{
+    opacity: 1;
+}
+
+div header.menu-mobile input.checkbox-menu:checked:before{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: 'X';
+    text-align: center;
+    font-size: 2em;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 100vh;
+    background: white;
+    padding: 15px;
+}
+
+div header.menu-mobile{
+    height: 70px;
+    width: 100vw;
+    background: var(--branco);
+    justify-content: space-between;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+    z-index: 999999999;
+    position: fixed;
+    top: 0;
+}
+
+div header.menu-mobile img.menu-hamburguer{
+    height: 40px;
+    width: 50px;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(-5%, -50%);
+}
+
+div header.menu-mobile a li img{
+    height: 8vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+div header.menu-mobile ul.menu-lateral{
+    position: absolute;
+    background: var(--branco);
+    width: 70%;
+    height: 100vh;
+    box-shadow: 5px 0 10px #00000090;
+    top: 0;
+    left: -275%;
+    transform: translate(275%, 0);
+    transition: 0.5s;
+    overflow: scroll;
+}
+
+div header.menu-mobile ul.menu-lateral::-webkit-scrollbar{
+    display: none;
+}
+
+div header.menu-mobile ul{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+div header.menu-mobile ul a{
+    display: inline-block;
+    margin-left: 5%;
+    padding: 0 5%;
+    width: auto;
+    height: 100%;
+    line-height: 70px;
+    transition: 0.2s;
+    cursor: pointer;
+    font-weight: 400;
+    text-decoration: none;
+    color: var(--preto);
+}
+
+div header.menu-web ul:first-child a:hover, div header.menu-web ul:first-child a li div.i-grupos ul.dropdown a:hover{
+    cursor: pointer;
+    background: var(--cinza-claro-pagina-atual);
+}
+
+div header.menu-web ul:first-child a:first-child:hover{
+    cursor: pointer;
+    background: var(--branco);
+}
+
+div header.menu-web ul a.pagina_atual{
+    background: var(--cinza-claro-pagina-atual);
+}
+
+div header.menu-web ul a li img{
+    height: 8vh;
+    margin: 1.5vh;
+}
+
+div header.menu-web ul a li .i-grupos{
+    display: flex;
+    align-items: center;
+}
+
+div header.menu-web ul a li .i-grupos i{
+    margin-left: 10%;
+    font-size: 20px;
+}
+
+div header.menu-web ul:first-child a li div.i-grupos ul.dropdown{
+    position: absolute;
+    background: var(--branco);
+    top: 100%;
+    left: 15%;
+    display: none;
+    flex-direction: column;
+    width: 20%;
+    transform: translate(-15%, -0%);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+div header.menu-web ul:first-child a li div.i-grupos:hover ul.dropdown{
+    display: flex;
+}
+
+div header.menu-web ul:first-child a li div.i-grupos ul.dropdown a{
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    text-align: left;
+    font-size: 1em;
+    line-height: 1em;
+}
+
+div header.menu-web ul:first-child a li div.i-grupos ul.dropdown a li{
+    display: flex;
+    align-items: center;
+}
+
+div header.menu-web ul:first-child a li div.i-grupos ul.dropdown a li img{
+    width: 3.5vh;
+    height: 3.5vh;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+div header.menu-web ul:first-child a li div.i-grupos ul.dropdown a:first-child{
+    box-shadow: inset 0px 5px 5px -2px rgba(0, 0, 0, 0.25);
+}
+
+div header.menu-web ul:last-child{
+    position: relative;
+}
+
+div header.menu-web ul:last-child a:first-child{
+    position: absolute;
+    top: 0;
+    right: 90%;
+    transform: translate(-90%, -0%);
+}
+
+div header.menu-web ul:last-child a:last-child{
+    position: absolute;
+    top: 0;
+    right: 110%;
+    transform: translate(-110%, -0%);
+}
+
+div header.menu-web ul:last-child a li img{
+    border-radius: 100vh;
+    width: 8vh;
+    height: 8vh;
+    object-fit: cover;
+}
+
+div header.menu-web ul:last-child a li i{
+    font-size: 25px;
+    vertical-align: -5px;
+}
+
+/*SUBMENU*/
 section.sub-header{
     top: 70px;
     background: var(--salmao-claro);
@@ -272,6 +490,14 @@ section.sub-header ul:last-child a li ul.notificacoes a i{
 
 /*TELA PEQUENA*/
 @media screen and (max-width: 768px){
+
+    div header.menu-web{
+        display: none;
+    }
+
+    div header.menu-mobile{
+        display: flex;
+    }
     
     section.sub-header ul:last-child input.checkbox-notificacao{
         width: 60px;
@@ -286,6 +512,14 @@ section.sub-header ul:last-child a li ul.notificacoes a i{
 
 /*TELA MÉDIA-PEQUENA*/
 @media screen and (min-width: 481px) and (max-width: 768px){
+
+    div header.menu-web{
+        display: none;
+    }
+
+    div header.menu-mobile{
+        display: flex;
+    }
     
     section.sub-header ul:last-child input.checkbox-notificacao{
         width: 60px;
