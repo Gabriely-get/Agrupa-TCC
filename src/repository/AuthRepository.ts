@@ -17,8 +17,8 @@ export async function storeAdmin(req: Request, res: Response){
             user.isAdmin = true,
 			user.email = req.body.email;
 			user.password_user = bcrypt.hashSync(req.body.password_user, 8);
-			user.userName = req.body.userNname;
-			user.nickName = req.body.nickNName;
+			user.userName = req.body.name;
+			user.nickName = req.body.nickName;
 			user.birthDate = req.body.birthDate;
 
 			const saveU = await userRep.save(user);

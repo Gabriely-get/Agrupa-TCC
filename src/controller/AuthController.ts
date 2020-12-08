@@ -25,7 +25,7 @@ export class AuthController{
                         userPass.password_user
                     );
                     if(!(validPassword)){
-                        return res.status(403).send({message: 'Email ou senha incorretos!'});
+                        return res.send({message: 'Email ou senha incorretos!'});
                     }
                     var token = jwt.sign({ id: userPass.id }, secret, {
                         expiresIn: 86400 // 24 hours
@@ -47,7 +47,7 @@ export class AuthController{
                 }
                
             }
-            return res.status(403).send({message: 'Email ou senha incorretos!'});
+            return res.send({message: 'Email ou senha incorretos!'});
         }).catch((err) => { res.status(500).send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
     }
 
@@ -59,7 +59,7 @@ export class AuthController{
                 let token;
     
                 if (!(token = req.headers["x-access-token"])) {
-                return res.status(403).send({ message: "No token provided!" });
+                return res.send({ message: "No token provided!" });
                 }
 
                 let user;
@@ -67,7 +67,7 @@ export class AuthController{
 
                     jwt.verify(token, secret, (err: any, decoded: any) => {
                     if (err) {
-                        return res.status(401).send({ message: "Unauthorized!" });
+                        return res.send({ message: "Unauthorized!" });
                     }
                         user.api_key = null;
 

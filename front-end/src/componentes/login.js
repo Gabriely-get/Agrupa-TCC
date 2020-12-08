@@ -44,7 +44,7 @@ export default class Login extends React.Component {
             //   console.log('pohaaa');
             // }
             
-            if(response.status == 200){
+            if(!(response.data.message == "Email ou senha incorretos!")){
               this.props.history.push("/grupos");
               // const token = response.headers["x-access-token"];
               // console.log(response.data.acessToken + ' ' + token);
@@ -60,7 +60,7 @@ export default class Login extends React.Component {
             console.log("erro: " + err);
             this.setState({
               error:
-                "Preencha e-mail e senha para continuar!"
+                "aaaaaaaaaaaaaaaaaaaa"
             });
           }
         }
