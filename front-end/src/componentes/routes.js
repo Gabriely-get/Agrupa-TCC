@@ -1,36 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import {BrowserRouter, Switch, Route, Redirect} from "react-router-dom";
-import Home from "./home";
-import Cadastro from "./cadastro";
-import Login from "./login";
-import Grupos from "./grupos";
-import Eventos from "./eventos";
-import Sugestoes from "./sugestoes";
-import Perfil from "./perfil";
-import GrupoChat from "./grupo-chat";
-import GrupoInfo from "./grupo-info";
-import GrupoEventos from "./grupo-eventos";
-  
-const Routes = () => (
-    <BrowserRouter>
-        <Switch>
-            <Route exact path="/" component={Home}/>
-            <Route exact path="/cadastro" component={Cadastro}/>
-            <Route exact path="/login" component={Login}/>
-            <Route path="/grupos" component={Grupos}/>
-            <Route path="/eventos" component={Eventos}/>
-            <Route path="/sugestoes" component={Sugestoes}/>
-            <Route path="/perfil" component={Perfil}/>
-            <Route path="/grupo" component={GrupoChat}/>
-            <Route path="/grupo-info" component={GrupoInfo}/>
-            <Route path="/grupo-eventos" component={GrupoEventos}/>
-            { /*<Route path="/grupos/:id" component={Grupo}/> */}
-        </Switch>
-    </BrowserRouter>
-)
-
-=======
 import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Home from "./home";
@@ -75,5 +42,4 @@ const Routes = () => (
     </BrowserRouter>
 )
 
->>>>>>> 32ff6618120562340e42134b5f5e27e9f5ea9916
 export default Routes;
