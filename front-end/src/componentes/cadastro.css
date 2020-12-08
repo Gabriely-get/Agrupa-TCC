@@ -73,7 +73,7 @@
 
 .div-grid div form{
     width: 70%;
-    height: 70%;
+    height: 80%;
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.25);
     border-radius: 50px;
     margin-left: 10%;
@@ -119,6 +119,10 @@
     border-radius: 100vh;
     border: 1px solid #000;
     padding: 0.5% 3%;
+}
+
+.div-grid div form label input:focus{
+    border: 1px solid var(--azul);
 }
 
 .div-grid div form .inputs label input{
@@ -187,6 +191,83 @@
     opacity: 0.7;
 }
 
+.div-grid div form input.checkbox-termos{
+    position: absolute;
+    width: 90px;
+    height: 20px;
+    top: 74%;
+    left: 32%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.div-grid div form  input.checkbox-termos:before{
+    top: 0;
+    left: 0;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 100vh;
+}
+
+.div-grid div form  input.checkbox-termos:checked ~ div.modal-criar-termos{
+    display: block;
+}
+
+.div-grid div form  input.checkbox-termos:checked{
+    opacity: 1;
+    cursor: pointer;
+    z-index: 9999999999;
+    top: 3%;
+    left: 45%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.div-grid div form  input.checkbox-termos:checked:before{
+    top: 0;
+    left: 0;
+    content: 'X';
+    text-align: center;
+    font-size: 1.5em;
+    line-height: 100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 100vh;
+    background: var(--branco);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20%;
+}
+
+.div-grid div form div.modal-criar-termos{
+    position: fixed;
+    background: var(--branco);
+    z-index: 999999999;
+    border-radius: 45px;
+    height: 80vh;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.25);
+    display: none;
+}
+
+.div-grid div form  div.modal-criar-termos h1{
+    font-size: 1.5em;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+    border-radius: 45px 45px 0 0;
+}
+
+
 /*TELA PEQUENA*/
 @media screen and (max-width: 768px){
     .box{
@@ -239,6 +320,27 @@
         text-align: center;
         width: 100%;
         transform: translate(-0%, -0%);
+    }
+    
+    .div-grid div form  input.checkbox-termos:checked{
+        top: -20vh;
+        left: 85%;
+        width: 15px;
+        height: 15px;
+    }
+    
+    .div-grid div form  input.checkbox-termos:checked:before{
+        line-height: 70%;
+    }
+    
+    .div-grid div form div.modal-criar-termos{
+        height: 85vh;
+        width: 90%;
+    }
+    
+    .div-grid div form  div.modal-criar-termos h1{
+        font-size: 1.4em;
+        font-weight: 400;
     }
 }
 
@@ -295,5 +397,9 @@
         text-align: center;
         width: 100%;
         transform: translate(-0%, -0%);
+    }
+    
+    .div-grid div form  input.checkbox-termos:checked{
+        top: -2%;
     }
 }

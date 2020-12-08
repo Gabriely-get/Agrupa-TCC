@@ -21,10 +21,14 @@ export default class Cadastro extends React.Component {
                                 <input type="text" name="nome" />
                                 </label>
                                 <label>
-                                    Sobrenome
-                                <input type="text" name="sobrenome" />
+                                    Nickname
+                                <input type="text" name="nickname" />
                                 </label>
                             </div>
+                            <label>
+                                Data de nascimento
+                                <input type="date" name="data-nascimento" />
+                            </label>
                             <label>
                                 E-mail
                                 <input type="email" name="email" />
@@ -34,12 +38,16 @@ export default class Cadastro extends React.Component {
                                 <input type="password" name="senha" />
                             </label>
                             <label>
-                                Confirmar Senha
+                                Confirmar senha
                                 <input type="password" name="confirmarsenha" />
                             </label>
                             <input type="checkbox" name="termosdeuso" className="termosdeuso" />
                             <b>Li e aceito os <a>termos de uso</a></b>
-                            <Link to="/login"><input type="submit" value="Cadastrar" className="cadastrar"/></Link>
+                            <input type="checkbox" className="checkbox-termos" />
+                            <div className="modal-criar-termos">
+                                <h1>Termos de uso</h1>
+                            </div>
+                            <Link to="/login"><input type="submit" value="Cadastrar" className="cadastrar" /></Link>
                             <Link to="/login" className="jatenhoconta">Já possuo uma conta</Link>
                         </form>
                     </div>

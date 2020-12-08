@@ -3,13 +3,15 @@ import './grupos.css';
 import './header.css';
 import { Link } from 'react-router-dom';
 
+
+
 export default class Grupos extends React.Component {
     render() {
         return (
             <div>
                 <header>
                     <ul>
-                        <Link to="/grupos" ><li><img src="img/logo.png" /></li></Link>
+                        <Link to="/grupos"><li><img src="img/logo.png" /></li></Link>
                         <Link to="/grupos" className="pagina_atual"><li>Início</li></Link>
                         <Link><li><div className="i-grupos">Grupos<ul className="dropdown">
                             <Link to="/grupo" ><li><img src="img/grupo-exemplo1.jpg" />Superonze</li></Link>
@@ -27,10 +29,35 @@ export default class Grupos extends React.Component {
                     </ul>
                 </header>
                 <section className="pesquisa">
-                    <a>Criar grupo</a>
+                    <a>Criar Grupo</a>
+                    <input type="checkbox" className="checkbox-modal" />
+                    <div className="modal-criar-grupo">
+                        <form className="form-criar-grupo">
+                            <input type="file" name="imagem-grupo" />
+                            <div>
+                                <label>Nome
+                                <input type="text" name="nome-grupo" />
+                                </label>
+                                <label>Categoria
+                                <input type="text" name="categoria-grupo" />
+                                </label>
+                                <label>Subcategorias
+                                <input type="text" name="categoria-grupo" />
+                                </label>
+                                <label>Máximo de usuários
+                                <input type="number" name="subcategorias-grupo" />
+                                </label>
+                                <label>Descrição
+                                <textarea type="text" name="subcategorias-grupo" />
+                                </label>
+                            </div>
+                            <input type="submit" value="Criar Grupo" />
+                        </form>
+                    </div>
                     <form className="input-pesquisa">
-                        <label><i class="fas fa-search"></i>
+                        <label>
                             <input type="text" name="pesquisar" placeholder="Pesquisar grupos..." />
+                            <i class="fas fa-search"></i>
                         </label>
                     </form>
                 </section>

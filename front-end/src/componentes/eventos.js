@@ -28,8 +28,9 @@ export default class Eventos extends React.Component {
                 </header>
                 <section className="pesquisa">
                     <form className="input-pesquisa">
-                        <label><i class="fas fa-search"></i>
+                        <label>
                             <input type="text" name="pesquisar" placeholder="Pesquisar eventos..." className="pesquisa-eventos"/>
+                            <i class="fas fa-search"></i>
                         </label>
                     </form>
                 </section>

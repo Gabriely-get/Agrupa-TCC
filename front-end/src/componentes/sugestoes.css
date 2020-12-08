@@ -93,8 +93,13 @@ section.section-sugestoes{
     width: 100%;
     outline: none;
     border-radius: 100vh;
-    border: 1px solid #000;
+    border: 1px solid var(--preto);
     padding: 0.5% 3%;
+    transition: 0.2s;
+}
+
+.div-grid-sugestao div form label input:focus{
+    border: 1px solid var(--azul);
 }
 
 section.section-sugestoes form label{
@@ -125,6 +130,11 @@ section.section-sugestoes form label textarea{
     resize: none;
     padding: 1% 2%;
     margin-bottom: 3%;
+    transition: 0.2s;
+}
+
+section.section-sugestoes form label textarea:focus{
+    border: 1px solid var(--azul);
 }
 
 section.section-sugestoes form input[type="submit"]{
