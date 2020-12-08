@@ -5,10 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "axios": "^0.21.0",
-<<<<<<< HEAD
     "bcrypt": "^5.0.0",
-=======
->>>>>>> 32ff6618120562340e42134b5f5e27e9f5ea9916
     "formik": "^2.2.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -16,11 +13,7 @@
     "react-scripts": "^3.4.4",
     "ts-node": "^9.1.0",
     "typescript": "^4.1.2",
-<<<<<<< HEAD
     "yup": "^0.32.3"
-=======
-    "yup": "^0.32.1"
->>>>>>> 32ff6618120562340e42134b5f5e27e9f5ea9916
   },
   "devDependencies": {},
   "scripts": {
@@ -40,8 +33,4 @@
       "last 1 safari version"
     ]
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 32ff6618120562340e42134b5f5e27e9f5ea9916
