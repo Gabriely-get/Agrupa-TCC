@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root{
@@ -189,4 +190,326 @@ section.chat div.mensagem div form label input[type="radio"]:checked:before{
 /*TELA GRANDE*/
 @media screen and (min-width: 1200px){
 
+=======
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --salmao-mais-claro: #FF6B6B;
+    --salmao-claro: #FF6363;
+    --salmao-medio: #FF4545;
+    --salmao-escuro: #E12727;
+    --azul: #0079C6;
+    --preto: #191919;
+    --branco: #FFFFFF;
+    --cinza-claro: #FAFAFA;
+    --cinza-claro-hover: #eeeeee;
+    --cinza-escuro: #E8E8E8;
+    --cinza-escuro-hover: #dbdbdb;
+    --cinza-fundo: #e6e6e6;
+    --cinza-mais-escuro: #C4C4C4;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+div.grupo-chat{
+    background: var(--cinza-fundo);
+}
+
+section.barra-digitar{
+    position: fixed;
+    top: 100%;
+    width: 100vw;
+    transform: translateY(-100%);
+    z-index: 999999997;
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.25);
+}
+
+section.barra-digitar input.checkbox-enquete{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 0;
+    left: 4%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+
+section.barra-digitar input.checkbox-enquete:before{
+    top: 0;
+    left: 0;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 100vh;
+}
+
+section.barra-digitar input.checkbox-enquete:checked ~ div.modal-criar-enquete{
+    display: block;
+}
+
+section.barra-digitar input.checkbox-enquete:checked{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: -1150%;
+    left: 70%;
+    opacity: 1;
+    cursor: pointer;
+    z-index: 9999999999;
+}
+
+section.barra-digitar input.checkbox-enquete:checked:before{
+    top: -25%;
+    left: -25%;
+    content: 'X';
+    text-align: center;
+    font-size: 2em;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 100vh;
+    background: white;
+    padding: 15px;
+}
+
+section.barra-digitar div.modal-criar-enquete{
+    position: fixed;
+    background: var(--branco);
+    z-index: 999999999;
+    border-radius: 45px;
+    height: 68vh;
+    width: 50%;
+    padding: 2% 5%;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.25);
+    display: none;
+}
+
+section.barra-digitar div.modal-criar-enquete h1{
+    font-size: 1.5em;
+    font-weight: 500;
+    text-align: center;
+}
+
+section.barra-digitar div.modal-criar-enquete form label input, section.barra-digitar div.modal-criar-enquete form button{
+    width: 100%;
+    text-align: left;
+    padding: 0.5% 4%;
+    border-radius: 100vh;
+    border: 1px solid var(--preto);
+    outline: none;
+    margin-bottom: 1%;
+    transition: 0.2s;
+}
+
+section.barra-digitar div.modal-criar-enquete form label input:focus{
+    border: 1px solid var(--azul);
+}
+
+section.barra-digitar div.modal-criar-enquete form button{
+    border: none;
+    background: var(--cinza-mais-escuro);
+    text-align: center;
+    padding: 1%;
+    line-height: 120%;
+    cursor: pointer;
+}
+
+section.barra-digitar div.modal-criar-enquete form div{
+    margin-top: 4%;
+}
+
+section.barra-digitar div.modal-criar-enquete form div div{
+    margin-top: 4%;
+}
+
+section.barra-digitar div.modal-criar-enquete form input[type="submit"]{
+    background: var(--azul);
+    color: var(--branco);
+    display: block;
+    border: none;
+    outline: none;
+    padding: 2% 10%; 
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 300;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -90%);
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: center;
+    width: 300px;
+}
+
+section.barra-digitar div.modal-criar-enquete form input[type="submit"]:hover{
+    background: var(--cinza-medio);
+    color: var(--azul);
+}
+
+section.barra-digitar form.barra-digitar{
+    border: 2px solid var(--preto);
+    position: relative;
+    background: var(--branco);
+}
+
+section.barra-digitar form.barra-digitar label{
+    display: flex;
+    align-items: center;
+}
+
+section.barra-digitar form.barra-digitar label i{
+    font-size: 2em;
+    margin-left: 1%;
+    cursor: pointer;
+}
+
+section.barra-digitar form.barra-digitar label input[type="text"]{
+    border: none;
+    padding: 0.5% 1%;
+    width: 90%;
+}
+
+section.barra-digitar form.barra-digitar label input[type="submit"]{
+    border: none;
+    padding: 0.3% 0 0.3% 0.5%;
+    width: 8%;
+    background: var(--azul);
+    border-radius: 100vh 0 0 100vh;
+    color: var(--branco);
+    font-size: 1em;
+    font-weight: 300;
+    transition: 0.2s;
+}
+
+section.barra-digitar form.barra-digitar label input[type="submit"]:hover{
+    cursor: pointer;
+    background: var(--cinza-escuro-hover);
+    color: var(--azul);
+    font-weight: 300;
+}
+
+section.chat{
+    position: relative;
+    width: 92%;
+    margin: 0 auto 0 auto;
+    padding: 130px 0 50px 0;
+}
+
+section.chat div.mensagem{
+    margin: 1% 0;
+    display: flex;
+}
+
+section.chat div.mensagem img{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+}
+
+section.chat div.mensagem div{
+    display: inline-block;
+    margin-left: 1%;
+    background: var(--branco);
+    padding: 1%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+section.chat div.mensagem div:before{
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: -5px;
+    width: 10px;
+    height: 10px;
+    background: var(--branco);
+    transform: rotate(45deg);
+}
+
+section.chat div.mensagem div h1{
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+section.chat div.mensagem div p{
+    font-size: 0.9em;
+    font-weight: 400;
+}
+
+section.chat div.mensagem div img{
+    width: auto;
+    height: auto;
+}
+
+section.chat div.mensagem div form label{
+    display: flex;
+    align-items: center;
+    margin: 1% 0;
+}
+
+section.chat div.mensagem div form label input[type="radio"]{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin-right: 2%;
+    cursor: pointer;
+    opacity: 1;
+}
+
+section.chat div.mensagem div form label input[type="radio"]:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--branco);
+    border-radius: 100vh;
+    border: 2px solid var(--preto);
+    box-sizing: border-box;
+}
+
+section.chat div.mensagem div form label input[type="radio"]:hover:before{
+    background: var(--cinza-escuro-hover);
+}
+
+section.chat div.mensagem div form label input[type="radio"]:checked:before{
+    background: var(--azul);
+}
+
+/*TELA PEQUENA*/
+@media screen and (max-width: 480px){
+
+}
+
+/*TELA MÉDIA-PEQUENA*/
+@media screen and (min-width: 481px) and (max-width: 768px){
+
+}
+
+/*TELA MÉDIA-GRANDE*/
+@media screen and (min-width: 769px) and (max-width: 1199px){
+
+}
+
+/*TELA GRANDE*/
+@media screen and (min-width: 1200px){
+
+>>>>>>> 32ff6618120562340e42134b5f5e27e9f5ea9916
 }
