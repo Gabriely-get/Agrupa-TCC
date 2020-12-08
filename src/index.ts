@@ -6,7 +6,7 @@ import * as express from "express";
 import * as bodyParser from "body-parser";
 import * as cors from 'cors';
 import {Routes} from "./routes/routes";
-import { checkDuplicateEmail, checkDuplicateNames, checkDuplicateCell } from "./middleware/verifySignUp";
+import { checkDuplicateEmail, checkDuplicateNickName } from "./middleware/verifySignUp";
 import {isAdmin, verifyToken, isGroupAdmin} from "./middleware/authJwt";
 import {checkCharacters, checkDuplicateGroupName} from "./middleware/verifyCreateGroup";
 
@@ -15,13 +15,37 @@ createConnection().then(async connection => {
     // create express app
     const app = express();
     app.use(bodyParser.json());
+    // setup express app here
+    const corsOptions: cors.CorsOptions = {
+        allowedHeaders: [
+            'Origin',
+            'X-Requested-With',
+            'Content-Type',
+            'Content-lenght',
+            'Host',
+            'User-Agent',
+            'Accept',
+            'Accept-Encoding',
+            'Connection',
+            'X-Acess-Token'
+        ],
+        credentials: true,
+        methods: 'GET, HEAD, OPRTIONS, PUT, PACH, POST, DELETE',
+        origin: 'http://localhost:3001',
+        preflightContinue: false
+    };
+    
+    app.use(cors());
+    app.use(cors(corsOptions));    
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: true }));
 
     // register express routes from defined application routes
     Routes.forEach(route => {
         //USER
         //user nao logado -> store USER
         if(route.method=='post' && route.route=='/users'){
-            (app as any)[route.method](route.route, checkDuplicateEmail, checkDuplicateNames, checkDuplicateCell, (req: Request, res: Response, next: Function) => {
+            (app as any)[route.method](route.route, checkDuplicateEmail, checkDuplicateNickName, (req: Request, res: Response, next: Function) => {
                 const result = (new (route.controller as any))[route.action](req, res, next);
                 if (result instanceof Promise) {
                     result.then(result => result !== null && result !== undefined ? res.send(result) : undefined);
@@ -33,7 +57,7 @@ createConnection().then(async connection => {
         }
         //user logado update
         if(route.type=="userLogon" && route.method=="update"){
-            (app as any)[route.method](route.route, checkDuplicateNames, checkDuplicateCell, verifyToken,(req: Request, res: Response, next: Function) => {
+            (app as any)[route.method](route.route, checkDuplicateNickName, verifyToken,(req: Request, res: Response, next: Function) => {
                 const result = (new (route.controller as any))[route.action](req, res, next);
                 if (result instanceof Promise) {
                     result.then(result => result !== null && result !== undefined ? res.send(result) : undefined);
@@ -68,7 +92,7 @@ createConnection().then(async connection => {
             });
         } //store Admin
         if(route.type=="authLogon" && route.method=="post"){
-            (app as any)[route.method](route.route, checkDuplicateEmail, checkDuplicateNames, checkDuplicateCell, isAdmin, (req: Request, res: Response, next: Function) => {
+            (app as any)[route.method](route.route, checkDuplicateEmail, checkDuplicateNickName, isAdmin, (req: Request, res: Response, next: Function) => {
                 const result = (new (route.controller as any))[route.action](req, res, next);
                 if (result instanceof Promise) {
                     result.then(result => result !== null && result !== undefined ? res.send(result) : undefined);
@@ -103,33 +127,6 @@ createConnection().then(async connection => {
         }
         
     });
-
-    // setup express app here
-    const corsOptions: cors.CorsOptions = {
-        allowedHeaders: [
-            'Origin',
-            'X-Requested-With',
-            'Content-Type',
-            'Content-lenght',
-            'Host',
-            'User-Agent',
-            'Accept',
-            'Accept-Encoding',
-            'Connection',
-            'X-Acess-Token'
-        ],
-        credentials: true,
-        methods: 'GET, HEAD, OPRTIONS, PUT, PACH, POST, DELETE',
-        origin: 'http://localhost:3000',
-        preflightContinue: false
-    };
-    
-    dotenv.config({
-        path: './.env'
-    });
-    app.use(express.json());
-    app.use(express.urlencoded({ extended: true }));
-    app.use(cors(corsOptions));    
 
     // start express server
     app.listen(3000);

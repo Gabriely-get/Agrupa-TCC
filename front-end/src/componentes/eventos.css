@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --salmao-mais-claro: #FF6B6B;
+    --salmao-claro: #FF6363;
+    --salmao-medio: #FF4545;
+    --salmao-escuro: #E12727;
+    --azul: #0079C6;
+    --preto: #191919;
+    --branco: #FFFFFF;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+div section.pesquisa form label input.pesquisa-eventos{
+    width: 85vw;
+    text-align: left;
+    padding: 0.5% 4%;
+    border-radius: 100vh;
+    border: 2px solid var(--preto);
+    outline: none;
+}
+
+div section.lista-grupos div.card-grupo div.info-grupo div.tags-eventos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+div section.lista-grupos div.card-grupo div.info-grupo div.tags-eventos p{
+    background: var(--salmao-claro);
+    color: var(--branco);
+    font-weight: 300;
+    font-size: 0.7em;
+    padding: 1% 5%;
+    border-radius: 100vh;
+    margin: 5% 2% 0 1%;
+}
+
+div section.lista-grupos div.card-grupo div.info-grupo div.data{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 70%;
+    margin: 4% 0 -2% 13%;
+}
+
+div section.lista-grupos div.card-grupo div.info-grupo div.data i{
+    font-size: 1.5em;
+    margin-right: 10%;
+}
+
+div section.lista-grupos div.card-grupo div.info-grupo div.data h3{
+    font-size: 0.9em;
+    font-weight: 500;
+    margin-left: 2%;
+    white-space: nowrap;
+}
+
+div section.lista-grupos div.card-grupo div.info-grupo div.grupo-evento{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+div section.lista-grupos div.card-grupo div.info-grupo div.grupo-evento img{
+    width: 4vh;
+    height: 5vh;
+    object-fit: contain;
+}
+
+div section.lista-grupos div.card-grupo div.info-grupo div.grupo-evento h3{
+    font-size: 0.9em;
+    font-weight: 500;
+    margin-left: 5%;
+}
+
+/*TELA PEQUENA*/
+@media screen and (max-width: 480px){
+
+}
+
+/*TELA MÉDIA-PEQUENA*/
+@media screen and (min-width: 481px) and (max-width: 768px){
+
+}
+
+/*TELA MÉDIA-GRANDE*/
+@media screen and (min-width: 769px) and (max-width: 1199px){
+
+}
+
+/*TELA GRANDE*/
+@media screen and (min-width: 1200px){
+
+}

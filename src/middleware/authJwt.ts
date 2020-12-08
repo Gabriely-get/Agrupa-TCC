@@ -44,13 +44,11 @@ async function isAdmin(req: Request, res: Response, next?: NextFunction){
                     return;
                 }
             
-                res.status(403).send({ message: "Require Admin Role!" });
-                return;
+                return res.status(403).send({ message: "Require Admin Role!" });
             }
             return res.send({ message: 'Ação nao autorizada!' });
-        }
-    }).catch((err) => { res.status(500).send({ message: 'Houve um ero inesperado!' }); console.log(err); return;});
-}
+        }).catch((err) => { res.status(500).send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
+    }
 
 async function isGroupAdmin(req: Request, res: Response, next?: NextFunction){
     return new Promise(async (resolve) => {

@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, PrimaryColumn, ViewEntity, EntityRepository  } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, PrimaryColumn, ViewEntity, EntityRepository, ManyToMany, JoinTable  } from "typeorm";
+import { grouptable } from "./groupTable";
 
 @Entity()
 export class User{
@@ -10,7 +11,7 @@ export class User{
     api_key: string;
 
     @Column({ default: false})
-    isAdmin: boolean; //add default value as false
+    isAdmin: boolean;
 
     @Column({ nullable: false, unique: true })
     email: string;
@@ -19,19 +20,16 @@ export class User{
     password_user: string;
 
     @Column({ nullable: true })
-    firstName: string;
+    userName: string;
 
     @Column({ nullable: true })
-    lastName: string;
+    nickName: string;
 
     @Column()
     imgAvatar:  string;
 
     @Column({ nullable: true, type: 'date' })
     birthDate: Date;    
-
-    @Column({ width: 11 })
-    cellphone: number;
 
 }
 

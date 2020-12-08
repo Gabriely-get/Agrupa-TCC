@@ -27,37 +27,37 @@ async function checkDuplicateEmail(req: Request, res: Response, next?: NextFunct
 
 }      
 
-async function checkDuplicateNames(req: Request, res: Response, next?: NextFunction){
+async function checkDuplicateName(req: Request, res: Response, next?: NextFunction){
     const userRepository = await getRepository(User);
 
     return new Promise(async (resolve) => {
         
         if((req.body.firstName == "" || req.body.lastName == "") || (req.body.firstName == null || req.body.lastName == null) || (req.body.firstName == undefined || req.body.lastName == undefined) || (req.body.firstName == "null" || req.body.lastName == "null")){
-            return res.send({ message: 'Os campos nome e sobrenome devem ser preenchidos!' });
+            return res.send({ message: 'Todos os campos devem ser preenchidos!' });
         }
         else{
-            const nameExists = await userRepository.findOne({firstName: req.body.firstName, lastName: req.body.lastName});
+            next();
+        }
+    }).catch((err) => { res.status(500).send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
+}
+
+
+async function checkDuplicateNickName(req: Request, res: Response, next?: NextFunction){
+    const userRepository = await getRepository(User);
+
+    return new Promise(async (resolve) => {
+        
+        if(req.body.name == "" ||  req.body.name == null || req.body.name == undefined || req.body.name == "null"){
+            return res.send({ message: 'Todos os campos devem ser preenchidos!' });
+        }
+        else{
+            const nameExists = await userRepository.findOne({userName: req.body.name});
         
             if(nameExists){
                 return res.send({message: 'Ja existe um usuario cadastrado com este nome!'});
             }
             next();
         }
-    }).catch((err) => { res.status(500).send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
-}
-
-async function checkDuplicateCell(req: Request, res: Response, next?: NextFunction){
-    const userRepository = await getRepository(User);
-
-    return new Promise(async (resolve) => {
-
-        const cellExists = await userRepository.findOne({cellphone: req.body.cellphone});
-        
-        if(cellExists){
-            return res.send({message: 'Ja existe um usuario cadastrado com este telefone!'});
-        }
-        next();
-        
     }).catch((err) => { res.status(500).send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
 }
 
@@ -91,8 +91,8 @@ async function checkBirthDate(req: Request, res: Response, next?: NextFunction){
 }      
 
 const verifysignup = { checkDuplicateEmail,
-                       checkDuplicateNames,
-                       checkDuplicateCell,
+                       checkDuplicateName,
+                       checkDuplicateNickName,
                        checkBirthDate     
                     };
   

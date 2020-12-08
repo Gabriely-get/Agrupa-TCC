@@ -25,7 +25,7 @@ export class AuthController{
                         userPass.password_user
                     );
                     if(!(validPassword)){
-                        return res.send({message: 'Senha incorreta'});
+                        return res.status(403).send({message: 'Email ou senha incorretos!'});
                     }
                     var token = jwt.sign({ id: userPass.id }, secret, {
                         expiresIn: 86400 // 24 hours
@@ -47,7 +47,7 @@ export class AuthController{
                 }
                
             }
-            return res.send('message: Email nao cadastrado');
+            return res.status(403).send({message: 'Email ou senha incorretos!'});
         }).catch((err) => { res.status(500).send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
     }
 
