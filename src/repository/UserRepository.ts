@@ -19,7 +19,7 @@ export async function store(req: Request, res: Response){
 			user.isAdmin = false;
 			user.email = req.body.email;
 			user.password_user = bcrypt.hashSync(req.body.password_user, 8);
-			user.userName = req.body.name;
+			user.userName = req.body.userName;
 			user.nickName = req.body.nickName;
 			user.birthDate = req.body.birthDate;
 

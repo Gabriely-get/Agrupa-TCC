@@ -1,11 +1,58 @@
 import React from 'react';
 import './grupos.css';
 import './header.css';
+import api from '../services/api';
 import { Link } from 'react-router-dom';
 
 
 
 export default class Grupos extends React.Component {
+
+    state = {
+        error: ""
+      };
+
+    handleSignIn = async e => {
+
+        e.preventDefault();
+          try {
+            // console.log('to aq 1');
+            const response = await api.get("/signOut");
+            // this.setState({
+            //   error: 
+            //   response.data.acessToken
+            //   });
+            // thiresponse.data.acessToken;
+            // login(t, t);
+            // console.log(response.data.message + ' ' + response.data.email + ' ' + response.data.acessToken);
+              console.log(response.data);
+            //   this.props.history.push("/grupos");
+            // }
+            // else{
+            //   console.log('pohaaa');
+            // }
+            
+            if(!(response.data.message == "Usuario deslogado!")){
+              this.props.history.push("/");
+              // const token = response.headers["x-access-token"];
+              // console.log(response.data.acessToken + ' ' + token);
+            } else{
+              console.log(response.data);
+              this.setState({
+                error: 
+                "Houve um erro inesperado mas não se preocupe, não é sua culpa!"
+              });
+            }
+
+          } catch (err) {
+            console.log("erro: " + err);
+            this.setState({
+              error:
+              "Houve um erro inesperado mas não se preocupe, não é sua culpa!"
+            });
+        }
+    };
+
     render() {
         return (
             <div>
@@ -28,6 +75,7 @@ export default class Grupos extends React.Component {
                         <Link to="/" ><li><i class="fas fa-sign-out-alt"></i></li></Link>
                     </ul>
                 </header>
+                <label>{ this.state.error && <h3 id="loginError"> {this.state.error} </h3> }</label>
                 <section className="pesquisa">
                     <a>Criar Grupo</a>
                     <input type="checkbox" className="checkbox-modal" />

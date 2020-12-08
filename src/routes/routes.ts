@@ -52,7 +52,7 @@ export const Routes = [{
     route: "/logOut",
     controller: ac.AuthController,
     action: "signOut",
-    type: "userLogon"
+    type: "userLogOut"
 }, //group
 {
     method: "put",

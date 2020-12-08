@@ -30,7 +30,7 @@ async function checkDuplicateGroupName(req: Request, res: Response, next?: NextF
             const groupNameExists = await groupRep.findOne({groupName: req.body.groupName});
 
             if(groupNameExists){
-                return res.status(400).send({ message: 'Ja existe um grupo com este nome!'});
+                return res.send({ message: 'Ja existe um grupo com este nome!'});
             }
             next(); 
         }

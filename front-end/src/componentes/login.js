@@ -37,19 +37,21 @@ export default class Login extends React.Component {
             // thiresponse.data.acessToken;
             // login(t, t);
             // console.log(response.data.message + ' ' + response.data.email + ' ' + response.data.acessToken);
-              console.log(response.data);
+            // bcrypt.hash(response.data.accessToken)
+              console.log('IFERNOOOOOOOOOOOOOOOOOOOO');
             //   this.props.history.push("/grupos");
             // }
             // else{
             //   console.log('pohaaa');
             // }
             
-            if(response.status == 200){
-              this.props.history.push("/grupos");
+            if(response.data.message == "Usuario logado"){
+              console.log(response.data);
+              // return this.props.history.push("/grupos");
               // const token = response.headers["x-access-token"];
               // console.log(response.data.acessToken + ' ' + token);
             } else{
-              console.log(response.data);
+              console.log('response.data');
               this.setState({
                 error: 
                   response.data.message
@@ -60,7 +62,7 @@ export default class Login extends React.Component {
             console.log("erro: " + err);
             this.setState({
               error:
-                "Preencha e-mail e senha para continuar!"
+                err
             });
           }
         }
