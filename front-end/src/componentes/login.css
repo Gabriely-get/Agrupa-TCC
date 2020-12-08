@@ -50,7 +50,7 @@
 }
 
 .div-grid div .slogan{
-    font-size: 35px;
+    font-size: 30px;
     width: 90%;
     font-weight: 400;
     text-align: center;
@@ -240,16 +240,7 @@
     .div-grid div form h1{
         font-size: 1.8em;
     }
-
-    /*adicionado pela Gaby*/
-
-    #loginError{
-        color: red;
-        font-size: 10px;
-    }
     
-    /*------*/
-
     .div-grid div form label{
         margin: 2% 10%;
         font-size: 0.9em;

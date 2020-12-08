@@ -100,23 +100,3 @@ div section.lista-grupos div.card-grupo div.info-grupo div.grupo-evento h3{
     font-weight: 500;
     margin-left: 5%;
 }
-
-/*TELA PEQUENA*/
-@media screen and (max-width: 480px){
-
-}
-
-/*TELA MÉDIA-PEQUENA*/
-@media screen and (min-width: 481px) and (max-width: 768px){
-
-}
-
-/*TELA MÉDIA-GRANDE*/
-@media screen and (min-width: 769px) and (max-width: 1199px){
-
-}
-
-/*TELA GRANDE*/
-@media screen and (min-width: 1200px){
-
-}
