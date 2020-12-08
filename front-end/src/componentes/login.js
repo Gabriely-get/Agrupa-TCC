@@ -16,18 +16,51 @@ export default class Login extends React.Component {
       };
     
       handleSignIn = async e => {
+
         e.preventDefault();
         const { email, senha } = this.state;
+
         if (!email || !senha) {
-          this.setState({ error: "Preencha e-mail e senha para continuar!" });
+          this.setState({
+            error: 
+              'Preencha e-mail e senha para continuar!'
+            });
+          console.log('sem email ou senha');
         } else {
           try {
+            // console.log('to aq 1');
             const response = await api.post("/logIn", { email, password_user:senha });
-            login(response.data.api_token);
-            this.props.history.push("/grupos");
+            // this.setState({
+            //   error: 
+            //   response.data.acessToken
+            //   });
+            // thiresponse.data.acessToken;
+            // login(t, t);
+            // console.log(response.data.message + ' ' + response.data.email + ' ' + response.data.acessToken);
+              console.log(response.data);
+            //   this.props.history.push("/grupos");
+            // }
+            // else{
+            //   console.log('pohaaa');
+            // }
+            
+            if(response.status == 200){
+              this.props.history.push("/grupos");
+              // const token = response.headers["x-access-token"];
+              // console.log(response.data.acessToken + ' ' + token);
+            } else{
+              console.log(response.data);
+              this.setState({
+                error: 
+                  response.data.message
+              });
+            }
+
           } catch (err) {
+            console.log("erro: " + err);
             this.setState({
-              error: "Houve um problema com o login, verifique suas credenciais. T.T"
+              error:
+                "Preencha e-mail e senha para continuar!"
             });
           }
         }
@@ -46,6 +79,9 @@ export default class Login extends React.Component {
                     <div>
                         <form className="form-login" onSubmit={this.handleSignIn}>
                             <h1 className="titulo">Faça seu Login</h1>
+                            <label>
+                              { this.state.error && <h3 id="loginError"> {this.state.error} </h3> }
+                            </label>
                             <label className="label-email">
                                 E-mail
                                 <input required type="email" name="email" onChange={e => this.setState({ email: e.target.value })}/>

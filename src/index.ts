@@ -32,7 +32,7 @@ createConnection().then(async connection => {
         credentials: true,
         methods: 'GET, HEAD, OPRTIONS, PUT, PACH, POST, DELETE',
         origin: 'http://localhost:3001',
-        preflightContinue: false
+        // preflightContinue: false
     };
     
     app.use(cors());

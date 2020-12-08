@@ -87,6 +87,11 @@
     display: block;
 }
 
+#loginError{
+    color: red;
+    font-size: 10px;
+}
+
 .div-grid div form .label-email{
     margin-top: 3%;
 }
