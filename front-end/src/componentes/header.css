@@ -270,20 +270,31 @@ section.sub-header ul:last-child a li ul.notificacoes a i{
     padding: 3% 5%;
 }
 
-div div.menu-mobile{
-    height: 50px;
-    width: 100%;
-    background: red;
-}
-
 /*TELA PEQUENA*/
 @media screen and (max-width: 768px){
+    
+    section.sub-header ul:last-child input.checkbox-notificacao{
+        width: 60px;
+        left: 88%;
+    }
+    
+    section.sub-header ul:last-child a li ul.notificacoes{
+        width: 55%;
+    }
 
 }
 
 /*TELA MÉDIA-PEQUENA*/
 @media screen and (min-width: 481px) and (max-width: 768px){
-
+    
+    section.sub-header ul:last-child input.checkbox-notificacao{
+        width: 60px;
+        left: 91.5%;
+    }
+    
+    section.sub-header ul:last-child a li ul.notificacoes{
+        width: 45%;
+    }
 }
 
 /*TELA MÉDIA-GRANDE*/
@@ -292,5 +303,14 @@ div div.menu-mobile{
     div header ul:first-child a li div.i-grupos ul.dropdown{
         left: 32%;
         width: 30%;
+    }
+    
+    section.sub-header ul:last-child input.checkbox-notificacao{
+        width: 60px;
+        left: 91.5%;
+    }
+    
+    section.sub-header ul:last-child a li ul.notificacoes{
+        width: 35%;
     }
 }

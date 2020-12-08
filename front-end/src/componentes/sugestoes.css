@@ -160,21 +160,43 @@ section.section-sugestoes form input[type="submit"]:hover{
 }
 
 /*TELA PEQUENA*/
-@media screen and (max-width: 480px){
-
-}
-
-/*TELA MÉDIA-PEQUENA*/
-@media screen and (min-width: 481px) and (max-width: 768px){
-
+@media screen and (max-width: 768px){
+    
+    .div-grid-sugestao{
+        display:grid;
+        grid-template-rows: 0% 100%;
+        grid-template-columns: 100%;
+        width: 100%;
+    }
+    
+    .div-grid-sugestao div img{
+        display: none;
+    }
+    
+    .div-grid-sugestao div .slogan{
+        display: none;
+    }
+    
+    .div-grid-sugestao div .form-sugestao{
+        width: 80%;
+    }
 }
 
 /*TELA MÉDIA-GRANDE*/
 @media screen and (min-width: 769px) and (max-width: 1199px){
-
-}
-
-/*TELA GRANDE*/
-@media screen and (min-width: 1200px){
-
+    
+    .div-grid-sugestao div img{
+        width: 60%;
+    }
+    
+    .div-grid-sugestao div .form-sugestao{
+        width: 80%;
+    }
+    
+    section.section-sugestoes form input[type="submit"]{
+        top: 95%;
+        left: 45%;
+        transform: translate(-45%, -95%);
+    }
+    
 }

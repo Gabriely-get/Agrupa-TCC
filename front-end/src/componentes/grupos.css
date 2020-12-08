@@ -356,12 +356,21 @@ div section.lista-grupos div.card-grupo div.info-grupo a:hover{
     }
     
     div section.pesquisa form label input{
-        padding: 0.5% 5%;
+        padding: 0.5% 7%;
+    }
+
+    div section.pesquisa form label i{
+        position: absolute;
+        top: 50%;
+        left: 1.5%;
+        transform: translate(-1.5%, -50%);
+        transition: 0.2s;
     }
 
     div section.pesquisa form label input{
-        width: 70vw;
+        width: 55vw;
         padding: 0.5% 7%;
+        margin-right: 3vw;
     }
     
     div section.lista-grupos{

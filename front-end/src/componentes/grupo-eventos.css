@@ -288,20 +288,75 @@ div.modal-criar-evento form input[type="submit"]:hover{
 
 /*TELA PEQUENA*/
 @media screen and (max-width: 480px){
-
+    
+    section.grupo-eventos div.grupo-evento img{
+        width: 100px;
+        height: auto;
+    }
+    
+    section.grupo-eventos div.grupo-evento div div h1{
+        font-size: 1em;
+        font-weight: 500;
+    }
+    
+    section.grupo-eventos div.grupo-evento div div p{
+        font-size: 0.7em;
+    }
+    
+    section.grupo-eventos div.grupo-evento div div:nth-child(2) p{
+        font-size: 0.7em;
+        width: 80%;
+        line-height: 15px;
+    }
+    
+    div.modal-criar-evento{
+        height: 85%;
+        width: 90%;
+    }
+    
+    div.modal-criar-evento form div.margin-top{
+        margin-top: 35%;
+    }
 }
 
 /*TELA MÉDIA-PEQUENA*/
 @media screen and (min-width: 481px) and (max-width: 768px){
 
+    section.grupo-eventos div.grupo-evento img{
+        height: auto;
+    }
+    
+    section.grupo-eventos div.grupo-evento div div h1{
+        font-size: 1.2em;
+    }
+    
+    section.grupo-eventos div.grupo-evento div div p{
+        font-size: 0.9em;
+    }
+    
+    section.grupo-eventos div.grupo-evento div div:nth-child(2) p{
+        font-size: 0.9em;
+        width: 80%;
+    }
+    
+    div.modal-criar-evento{
+        width: 90%;
+    }
 }
 
 /*TELA MÉDIA-GRANDE*/
 @media screen and (min-width: 769px) and (max-width: 1199px){
-
-}
-
-/*TELA GRANDE*/
-@media screen and (min-width: 1200px){
-
+    
+    section.grupo-eventos div.grupo-evento img{
+        height: auto;
+    }
+    
+    section.grupo-eventos div.grupo-evento div div:nth-child(2) p{
+        font-size: 0.9em;
+        width: 80%;
+    }
+    
+    div.modal-criar-evento{
+        width: 80%;
+    }
 }

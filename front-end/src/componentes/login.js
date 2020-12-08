@@ -2,8 +2,10 @@ import React from 'react';
 import './login.css';
 import { Link } from 'react-router-dom';
 import api from "../services/api";
-import {login, TOKEN_KEY, getToken} from '../services/auth';
-// import * as yup from 'yup';
+import {login} from '../services/auth';
+import { ErrorMessage, Formik, Form, Field } from 'formik';
+import * as yup from 'yup';
+import axios from 'axios';
 
 export default class Login extends React.Component {
 
@@ -14,51 +16,18 @@ export default class Login extends React.Component {
       };
     
       handleSignIn = async e => {
-
         e.preventDefault();
         const { email, senha } = this.state;
-
         if (!email || !senha) {
-          this.setState({
-            error: 
-              'Preencha e-mail e senha para continuar!'
-            });
-          console.log('sem email ou senha');
+          this.setState({ error: "Preencha e-mail e senha para continuar!" });
         } else {
           try {
-            // console.log('to aq 1');
             const response = await api.post("/logIn", { email, password_user:senha });
-            // this.setState({
-            //   error: 
-            //   response.data.acessToken
-            //   });
-            // thiresponse.data.acessToken;
-            // login(t, t);
-            // console.log(response.data.message + ' ' + response.data.email + ' ' + response.data.acessToken);
-              console.log(response.data);
-            //   this.props.history.push("/grupos");
-            // }
-            // else{
-            //   console.log('pohaaa');
-            // }
-            
-            if(response.status == 200){
-              this.props.history.push("/grupos");
-              // const token = response.headers["x-access-token"];
-              // console.log(response.data.acessToken + ' ' + token);
-            } else{
-              console.log(response.data);
-              this.setState({
-                error: 
-                  response.data.message
-              });
-            }
-
+            login(response.data.api_token);
+            this.props.history.push("/grupos");
           } catch (err) {
-            console.log("erro: " + err);
             this.setState({
-              error:
-                "Preencha e-mail e senha para continuar!"
+              error: "Houve um problema com o login, verifique suas credenciais. T.T"
             });
           }
         }
@@ -75,20 +44,15 @@ export default class Login extends React.Component {
                         <h1 className="slogan">Acesse sua conta e continue interagindo e conhecendo pessoas novas!</h1>
                     </div>
                     <div>
-                        <form className="form-login" onSubmit={this.handleSignIn} >
+                        <form className="form-login" onSubmit={this.handleSignIn}>
                             <h1 className="titulo">Faça seu Login</h1>
-                            <label>
-                              { this.state.error && <h3 id="loginError"> {this.state.error} </h3> }
-                            </label>
                             <label className="label-email">
                                 E-mail
-                                <input type="email" name="email" onChange={e => this.setState({ email: e.target.value })}/>
-                                {/* { result == false && <div>Preencha e-mail e senha para continuar!</div> } */}
-                                
+                                <input required type="email" name="email" onChange={e => this.setState({ email: e.target.value })}/>
                             </label>
                             <label>
                                 Senha
-                                <input type="password" name="senha" onChange={e => this.setState({ senha: e.target.value })}/>
+                                <input required type="password" name="senha" onChange={e => this.setState({ senha: e.target.value })}/>
                                 <a>Esqueci minha senha</a>
                             </label>
                             <input type="submit" value="Entrar" className="entrar"/>

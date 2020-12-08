@@ -58,7 +58,7 @@ section.section-perfil h2{
     font-size: 1.2em;
     width: 90%;
     display: block;
-    white-space: nowrap;
+    white-space: initial;
 }
 
 div section.lista-grupos-perfil{
@@ -91,7 +91,7 @@ div section.lista-grupos-perfil div.card-grupo h1{
     background: var(--salmao-medio);
     color: var(--branco);
     font-weight: 300;
-    padding: 0 2%;
+    padding: 0 5%;
     position: absolute;
     top: 39%;
     left: 50%;
@@ -100,6 +100,7 @@ div section.lista-grupos-perfil div.card-grupo h1{
     max-width: 100%;
     text-align: center;
     white-space: nowrap;
+    border-radius: 100vh;
 }
 
 div section.lista-grupos-perfil div.card-grupo div.info-grupo div.tags{
@@ -160,20 +161,98 @@ div section.lista-grupos-perfil div.card-grupo div.info-grupo a:hover{
 
 /*TELA PEQUENA*/
 @media screen and (max-width: 480px){
+    
+    div section.lista-grupos-perfil{
+        grid-template-columns: 50% 50%;
+        row-gap: 1%;
+    }
+    
+    div section.lista-grupos-perfil div.card-grupo img{
+        height: 80px;
+    }
+    
+    div section.lista-grupos-perfil div.card-grupo h1{
+        top: 37%;
+        left: 50%;
+        transform: translate(-50%, -37%);
+        font-size: 18px;
+    }
+    
+    div section.lista-grupos-perfil div.card-grupo div.info-grupo div.tags p{
+        white-space: nowrap;
+    }
+    
+    div section.lista-grupos-perfil div.card-grupo div.info-grupo div.membros{
+        width: 85%;
+        margin: 10% 7.5% 0 7.5%;
+    }
+    
+    div section.lista-grupos-perfil div.card-grupo div.info-grupo div.membros img{
+        height: 3vh;
+    }
 
 }
 
 /*TELA MÉDIA-PEQUENA*/
 @media screen and (min-width: 481px) and (max-width: 768px){
-
+    
+    div section.lista-grupos-perfil{
+        grid-template-columns: 33% 33% 33%;
+    }
+    
+    div section.lista-grupos-perfil div.card-grupo img{
+        height: 90px;
+    }
+    
+    div section.lista-grupos-perfil div.card-grupo h1{
+        top: 37%;
+        left: 50%;
+        transform: translate(-50%, -37%);
+        font-size: 18px;
+    }
+    
+    div section.lista-grupos-perfil div.card-grupo div.info-grupo div.tags p{
+        white-space: nowrap;
+    }
+    
+    div section.lista-grupos-perfil div.card-grupo div.info-grupo div.membros{
+        width: 85%;
+        margin: 10% 7.5% 0 7.5%;
+    }
+    
+    div section.lista-grupos-perfil div.card-grupo div.info-grupo div.membros img{
+        height: 3vh;
+    }
 }
 
 /*TELA MÉDIA-GRANDE*/
 @media screen and (min-width: 769px) and (max-width: 1199px){
-
-}
-
-/*TELA GRANDE*/
-@media screen and (min-width: 1200px){
-
+    
+    div section.lista-grupos-perfil{
+        grid-template-columns: 25% 25% 25% 25%;
+    }
+    
+    div section.lista-grupos-perfil div.card-grupo img{
+        height: 90px;
+    }
+    
+    div section.lista-grupos-perfil div.card-grupo h1{
+        top: 37%;
+        left: 50%;
+        transform: translate(-50%, -37%);
+        font-size: 18px;
+    }
+    
+    div section.lista-grupos-perfil div.card-grupo div.info-grupo div.tags p{
+        white-space: nowrap;
+    }
+    
+    div section.lista-grupos-perfil div.card-grupo div.info-grupo div.membros{
+        width: 75%;
+        margin: 10% 12.5% 0 12.5%;
+    }
+    
+    div section.lista-grupos-perfil div.card-grupo div.info-grupo div.membros img{
+        height: 4vh;
+    }
 }
