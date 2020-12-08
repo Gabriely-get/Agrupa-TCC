@@ -19,10 +19,9 @@ export async function store(req: Request, res: Response){
 			user.isAdmin = false;
 			user.email = req.body.email;
 			user.password_user = bcrypt.hashSync(req.body.password_user, 8);
-			user.firstName = req.body.firstName;
-			user.lastName = req.body.lastName;
+			user.userName = req.body.name;
+			user.nickName = req.body.nickName;
 			user.birthDate = req.body.birthDate;
-			user.cellphone = req.body.cellphone;
 
 			const saveU = await userRep.save(user);
 			
@@ -55,10 +54,9 @@ export async function update(req: Request, res: Response){
 					if(req.params.id == decoded.id){
 			
 						user.email = req.body.email;
-						user.firstName = req.body.firstName;
-						user.lastName = req.body.lastName;
+						user.userName = req.body.name;
+						user.nickName = req.body.nickName;
 						user.birthDate = req.body.birthDate;
-						user.cellphone = req.body.cellphone;
 
 						const saveU = userRep.save(user);
 						

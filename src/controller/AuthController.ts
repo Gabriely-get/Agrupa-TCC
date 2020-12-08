@@ -25,7 +25,7 @@ export class AuthController{
                         userPass.password_user
                     );
                     if(!(validPassword)){
-                        return res.send({message: 'Senha incorreta'});
+                        return res.status(403).send({message: 'Email ou senha incorretos!'});
                     }
                     var token = jwt.sign({ id: userPass.id }, secret, {
                         expiresIn: 86400 // 24 hours
@@ -47,7 +47,42 @@ export class AuthController{
                 }
                
             }
-            return res.send('message: Email nao cadastrado');
+            return res.status(403).send({message: 'Email ou senha incorretos!'});
         }).catch((err) => { res.status(500).send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
+    }
+
+    async signOut(req: Request, res: Response, next?: NextFunction){
+        const userRep = await getRepository(User);
+
+        return new Promise(async (resolve) => {
+            try{
+                let token;
+    
+                if (!(token = req.headers["x-access-token"])) {
+                return res.status(403).send({ message: "No token provided!" });
+                }
+
+                let user;
+                if(await userRep.findOne({ api_key: token })){
+
+                    jwt.verify(token, secret, (err: any, decoded: any) => {
+                    if (err) {
+                        return res.status(401).send({ message: "Unauthorized!" });
+                    }
+                        user.api_key = null;
+
+                        const saveU = userRep.save(user);
+                        
+                        return res.send({message: 'Usuario deslogado!', token: user.api_key});
+                    
+                    });
+                }
+                res.send({message: 'usuario ja esta deslogado!'});
+            } catch(e){
+                res.send({message: 'Houve um erro inesperado'});
+                console.log(e);
+                return;
+            }
+        }).catch((err) => { res.status(500).send({ message: 'Houve um ero inesperado!' }); console.log(err); return;});
     }
 }

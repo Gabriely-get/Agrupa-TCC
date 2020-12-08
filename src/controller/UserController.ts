@@ -6,12 +6,7 @@ import { resolveSoa } from "dns";
 
 export class UserController {
 
-    private userR;
     private userRepository = getRepository(User);
-
-    // constructor(ur: UserRepository){
-    //     this.userR = ur;
-    // }
 
     async all(re: Request, res: Response, next: NextFunction) {
         if(await this.userRepository.find()){
