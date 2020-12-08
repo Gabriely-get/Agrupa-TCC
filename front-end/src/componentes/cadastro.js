@@ -58,8 +58,10 @@ export default class Cadastro extends React.Component {
             // const token = response.headers["x-access-token"];
             // console.log(response.data.acessToken + ' ' + token);
           } else{
-            this.props.history.push("/grupos");
-            console.log(response.data);
+            this.setState({
+              error: 
+                response.data.message
+            });
           }
 
         } catch (err) {
