@@ -13,17 +13,14 @@ async function verifyToken(req: Request, res: Response, next?: NextFunction){
     return new Promise(async (resolve) => {
         let token;
 
-        if (!(token = req.headers["x-access-token"])) {
-            return res.status(403).send({ message: "Faça o login para realizar esta ação!" });
-        }
-
-        jwt.verify(token, secret, (err: any, decoded: any) => {
-        if (err) {
-            return res.status(401).send({ message: "Sem autorização para realizar esta ação!" });
-        }
-        next();
-        });
-    }).catch((err) => { res.status(500).send({ message: 'Houve um ero inesperado!' }); console.log(err); return;});
+        token = req.headers["x-access-token"];
+            jwt.verify(token, secret, (err: any, decoded: any) => {
+                if (err) {
+                    res.send({ message: "Sem autorização para realizar esta ação!" });
+                }
+                next();
+            });
+    }).catch((err) => { res.send({ message: 'Houve um erro inesperado!' }); console.log('aqui 3!!!!!!!!!!: '+err); return;});
 }
 
 async function isAdmin(req: Request, res: Response, next?: NextFunction){
@@ -36,7 +33,7 @@ async function isAdmin(req: Request, res: Response, next?: NextFunction){
                 let userAcess = await user.findOne({ api_key: rt });
     
                 if (!userAcess) {
-                    res.status(500).send({ message: 'Nao autorizado! Faça o login novamente.' });
+                    res.send({ message: 'Nao autorizado! Faça o login novamente.' });
                     return;
                 }
                 if (userAcess.isAdmin == true) {
@@ -44,10 +41,10 @@ async function isAdmin(req: Request, res: Response, next?: NextFunction){
                     return;
                 }
             
-                return res.status(403).send({ message: "Require Admin Role!" });
+                return res.send({ message: "Require Admin Role!" });
             }
             return res.send({ message: 'Ação nao autorizada!' });
-        }).catch((err) => { res.status(500).send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
+        }).catch((err) => { res.send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
     }
 
 async function isGroupAdmin(req: Request, res: Response, next?: NextFunction){
@@ -57,7 +54,7 @@ async function isGroupAdmin(req: Request, res: Response, next?: NextFunction){
 
         jwt.verify(rt, secret, async (err, decoded) => {
         if (err) {
-            return res.status(401).send({ message: "Unauthorized!" });
+            return res.send({ message: "Unauthorized!" });
         }
         if (decoded.id && req.params.id) {
             const gga = await createQueryBuilder()
@@ -74,10 +71,10 @@ async function isGroupAdmin(req: Request, res: Response, next?: NextFunction){
             }
             return res.send({message: 'É necessario ser administrador do grupo', id: decoded.id, params: req.params.id, admin: gga.isGroupAdmin});
         }
-        return res.status(403).send({ message: "Operação não pode ser concluída por erro das credenciais!" });
+        return res.send({ message: "Operação não pode ser concluída por erro das credenciais!" });
         });
 
-    }).catch((err) => { res.status(500).send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
+    }).catch((err) => { res.send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
 }
 
 const authJwt = {
