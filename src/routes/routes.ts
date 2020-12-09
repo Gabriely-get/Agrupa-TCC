@@ -52,13 +52,31 @@ export const Routes = [{
     route: "/logOut",
     controller: ac.AuthController,
     action: "signOut",
-    type: "userLogOut"
-}, //group
-{
+    type: "userLogon"
+},{
+    //group
     method: "put",
     route: "/group/:id",
     controller: gc.GroupController,
     action: "update",
+    type: "authGroupAction"
+},{
+    method: "post",
+    route: "/group",
+    controller: gc.GroupController,
+    action: "store",
+    type: "authGroupAction"
+},{
+    method: "get",
+    route: "/groups",
+    controller: gc.GroupController,
+    action: "all",
+    type: "authGroupAction"
+}, {
+    method: "get",
+    route: "/group/:id",
+    controller: gc.GroupController,
+    action: "one",
     type: "authGroupAction"
 }
 ];
