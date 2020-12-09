@@ -1,25 +1,25 @@
 import {getRepository} from "typeorm";
 import { store, update} from '../repository/GroupRepository'
 import {NextFunction, Request, Response} from "express";
-import {User} from "../entity/User";
+import {grouptable} from "../entity/groupTable";
 import { resolveSoa } from "dns";
 
 export class GroupController {
 
-    private userRepository = getRepository(User);
+    private userRepository = getRepository(grouptable);
 
     async all(re: Request, res: Response, next: NextFunction) {
-        if(await this.groupRepository.find()){
-            return this.groupRepository.find();
+        if(await this.userRepository.find()){
+            return this.userRepository.find();
         }
-        return res.send({ message: 'Nao ha usuarios cadastrados!' });
+        return res.send({ message: 'Nao ha grupos cadastrados!' });
     }
 
     async one(req: Request, res: Response, next: NextFunction) {
-        if(await this.groupRepository.findOne(req.params.id)){
-            return this.groupRepository.findOne(req.params.id);
+        if(await this.userRepository.findOne(req.params.id)){
+            return this.userRepository.findOne(req.params.id);
         }
-        return res.send({ message: 'Nao ha um usuario com esta identificação' });
+        return res.send({ message: 'Nao ha um grupo com esta identificação' });
     }
 
     async store(req: Request, res: Response, next?: NextFunction) {
