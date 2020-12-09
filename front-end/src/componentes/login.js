@@ -2,10 +2,9 @@ import React from 'react';
 import './login.css';
 import { Link } from 'react-router-dom';
 import api from "../services/api";
-import {login} from '../services/auth';
-import { ErrorMessage, Formik, Form, Field } from 'formik';
-import * as yup from 'yup';
-import axios from 'axios';
+import bcrypt from 'bcryptjs';
+import { KEY } from '../services/auth';
+import {loginSetStorage, campotoken, crypttoken} from '../services/auth';
 
 export default class Login extends React.Component {
 
@@ -27,47 +26,32 @@ export default class Login extends React.Component {
             });
           console.log('sem email ou senha');
         } else {
-          try {
-            // console.log('to aq 1');
-            const response = await api.post("/logIn", { email, password_user:senha });
-            // this.setState({
-            //   error: 
-            //   response.data.acessToken
-            //   });
-            // thiresponse.data.acessToken;
-            // login(t, t);
-            // console.log(response.data.message + ' ' + response.data.email + ' ' + response.data.acessToken);
-            // bcrypt.hash(response.data.accessToken)
-              console.log('IFERNOOOOOOOOOOOOOOOOOOOO');
-            //   this.props.history.push("/grupos");
-            // }
-            // else{
-            //   console.log('pohaaa');
-            // }
-            
-            if(response.data.message == "Usuario logado"){
-              console.log(response.data);
-              return this.props.history.push("/grupos");
-              // const token = response.headers["x-access-token"];
-              // console.log(response.data.acessToken + ' ' + token);
-            } else{
-              console.log('response.data');
+            try {
+               const response = await api.post("/logIn", { email, password_user:senha });
+              
+              if(await response.data.message == "Usuario logado"){
+                localStorage.setItem(campotoken, response.data.token);
+                console.log(response.data);
+                this.props.history.push("/grupos");
+
+              } else{
+                console.log('response.data');
+
+                this.setState({
+                  error: 
+                    response.data.message
+                });
+              }
+
+            } catch (err) {
+              console.log("erro: " + err);
               this.setState({
-                error: 
-                  response.data.message
+                error:
+                  "Erro inesperado"
               });
             }
-
-          } catch (err) {
-            console.log("erro: " + err);
-            this.setState({
-              error:
-                err
-            });
-          }
         }
       };
-    
 
     render() {
         return (

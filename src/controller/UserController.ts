@@ -1,38 +1,78 @@
-import {getRepository} from "typeorm";
-import { store, update} from '../repository/UserRepository'
-import {NextFunction, Request, Response} from "express";
+import { getRepository } from "typeorm";
+import * as bcrypt from 'bcryptjs';
+import * as jwt from 'jsonwebtoken';
+import { secret } from '../config/auth.config';
+import {NextFunction, Request, Response, response} from "express";
 import {User} from "../entity/User";
-import { resolveSoa } from "dns";
 
-export class UserController {
+export async function store(req: Request, res: Response){
 
-    private userRepository = getRepository(User);
+	const userRep = await getRepository(User);
 
-    async all(re: Request, res: Response, next: NextFunction) {
-        if(await this.userRepository.find()){
-            return this.userRepository.find();
-        }
-        return res.send({ message: 'Nao ha usuarios cadastrados!' });
-    }
+	return new Promise(async (resolve, reject) => {
+		try{
+			const random = Math.random() * 4;
+			const createID = await bcrypt.hashSync('randomTCCbEgIn248', random);
 
-    async one(req: Request, res: Response, next: NextFunction) {
-        if(await this.userRepository.findOne(req.params.id)){
-            return this.userRepository.findOne(req.params.id);
-        }
-        return res.send({ message: 'Nao ha um usuario com esta identificação' });
-    }
+			const user = new User();
+			user.id = bcrypt.hashSync(createID, 5);
+			user.isAdmin = false;
+			user.email = req.body.email;
+			user.password_user = bcrypt.hashSync(req.body.password_user, 8);
+			user.userName = req.body.userName;
+			user.nickName = req.body.nickName;
+			user.birthDate = req.body.birthDate;
 
-    async store(req: Request, res: Response, next?: NextFunction) {
-        return store(req, res);
-    }
-
-    async update(req: Request, res: Response, next?: NextFunction) {
-        return update(req, res);
-    }
-
-    async remove(request: Request, response: Response, next: NextFunction) {
-        let userToRemove = await this.userRepository.findOne(request.params.id);
-        await this.userRepository.softRemove(userToRemove);
-    }
-
+			const saveU = await userRep.save(user);
+			
+			return res.send({message: 'Usuario cadastrado com sucesso!', id: saveU.id,  pass: saveU.password_user});
+			
+		} catch(e){
+			res.send({message: 'Houve um erro inesperado'});
+			console.log(e);
+			return;
+		}
+	}).catch((err) => { res.send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
 }
+
+export async function update(req: Request, res: Response){
+
+	const userRep = await getRepository(User);
+
+	return new Promise(async (resolve, reject) => {
+		try{
+			let rt;
+
+            if(rt = await req.headers["x-access-token"]){
+
+				let user = await userRep.findOne({ api_key: rt });
+
+				jwt.verify(rt, secret, (err, decoded) => {
+					if (err) {
+						return res.send({ message: "Unauthorized!" });
+					}
+					if(req.params.id == decoded.id){
+			
+						user.email = req.body.email;
+						user.userName = req.body.name;
+						user.nickName = req.body.nickName;
+						user.birthDate = req.body.birthDate;
+
+						const saveU = userRep.save(user);
+						
+						return res.send({message: 'Usuario alterado com sucesso!', id: decoded.id});
+					}
+					return res.send({ message: "Açao nao autorizada" });
+				});
+			}
+			return res.send({ message: "No token provided!" });
+		} catch(e){
+			res.send({message: 'Houve um erro inesperado'});
+			console.log(e);
+			return;
+		}
+	}).catch((err) => { res.send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
+}
+// }
+
+	

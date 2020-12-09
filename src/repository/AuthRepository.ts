@@ -30,8 +30,7 @@ export async function storeAdmin(req: Request, res: Response){
 			console.log(e);
 			return;
 		}
-	}).catch((err) => { res.status(500).send({ message: 'Houve um ero inesperado!' }); console.log(err); return;});
+	}).catch((err) => { res.send({ message: 'Houve um ero inesperado!' }); console.log(err); return;});
 }
-// }
 
 	

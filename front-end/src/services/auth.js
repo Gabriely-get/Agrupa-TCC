@@ -1,9 +1,15 @@
-export const TOKEN_KEY = "secret-key-agrupatcc BEGIN-2020-56397810";
-export const isAuthenticated = () => localStorage.getItem(TOKEN_KEY) !== null;
-export const getToken = () => localStorage.getItem(TOKEN_KEY);
-export const login = api_token => {
-  localStorage.setItem(TOKEN_KEY, api_token);
+import bcrypt from 'bcryptjs';
+
+export const campotoken = 'hfjbf83hubf9484yhfih20.thth.5.g5g';
+export const secret = "secret-key-agrupatcc BEGIN-2020-56397810";
+
+export const isAuthenticated = () => localStorage.getItem(campotoken) !== null;
+
+export const getToken = () => localStorage.getItem(campotoken) !== null;
+
+export const loginSetStorage = (crypttoken) => {
+  localStorage.setItem(campotoken, crypttoken);
 };
 export const logout = () => {
-  localStorage.removeItem(TOKEN_KEY);
-};
+  localStorage.removeItem(campotoken);
+}

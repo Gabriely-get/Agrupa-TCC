@@ -35,7 +35,7 @@ export class AuthController{
                     user.save(userPass);
                     
                     res.setHeader("x-access-token", token);
-                    return res.status(200).send({
+                    return res.send({
                             message: 'Usuario logado',
                             email: userPass.email,
                             accessToken: userPass.api_key
@@ -48,7 +48,7 @@ export class AuthController{
                
             }
             return res.send({message: 'Email ou senha incorretos!'});
-        }).catch((err) => { res.status(500).send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
+        }).catch((err) => { res.send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
     }
 
     async signOut(req: Request, res: Response, next?: NextFunction){
@@ -83,6 +83,6 @@ export class AuthController{
                 console.log(e);
                 return;
             }
-        }).catch((err) => { res.status(500).send({ message: 'Houve um ero inesperado!' }); console.log(err); return;});
+        }).catch((err) => { res.send({ message: 'Houve um ero inesperado!' }); console.log(err); return;});
     }
 }

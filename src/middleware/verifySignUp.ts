@@ -23,7 +23,7 @@ async function checkDuplicateEmail(req: Request, res: Response, next?: NextFunct
             next();
         }
                   
-    }).catch((err) => { res.status(500).send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
+    }).catch((err) => { res.send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
 
 }
 
@@ -43,7 +43,7 @@ async function checkDuplicateNickName(req: Request, res: Response, next?: NextFu
             }
             next();
         }
-    }).catch((err) => { res.status(500).send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
+    }).catch((err) => { res.send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
 }
 
 //middleware data de nascimento
@@ -71,7 +71,7 @@ async function checkBirthDate(req: Request, res: Response, next?: NextFunction){
         //   next();
       }
                 
-  }).catch((err) => { res.status(500).send({ message: 'Houve um ero inesperado!' }); console.log(err); return;});
+  }).catch((err) => { res.send({ message: 'Houve um ero inesperado!' }); console.log(err); return;});
 
 }      
 

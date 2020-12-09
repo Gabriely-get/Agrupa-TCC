@@ -32,7 +32,7 @@ export async function store(req: Request, res: Response){
 			console.log(e);
 			return;
 		}
-	}).catch((err) => { res.status(500).send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
+	}).catch((err) => { res.send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
 }
 
 export async function update(req: Request, res: Response){
@@ -49,7 +49,7 @@ export async function update(req: Request, res: Response){
 
 				jwt.verify(rt, secret, (err, decoded) => {
 					if (err) {
-						return res.status(401).send({ message: "Unauthorized!" });
+						return res.send({ message: "Unauthorized!" });
 					}
 					if(req.params.id == decoded.id){
 			
@@ -62,16 +62,16 @@ export async function update(req: Request, res: Response){
 						
 						return res.send({message: 'Usuario alterado com sucesso!', id: decoded.id});
 					}
-					return res.status(401).send({ message: "Açao nao autorizada" });
+					return res.send({ message: "Açao nao autorizada" });
 				});
 			}
-			return res.status(403).send({ message: "No token provided!" });
+			return res.send({ message: "No token provided!" });
 		} catch(e){
 			res.send({message: 'Houve um erro inesperado'});
 			console.log(e);
 			return;
 		}
-	}).catch((err) => { res.status(500).send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
+	}).catch((err) => { res.send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
 }
 // }
 

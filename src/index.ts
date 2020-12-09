@@ -26,8 +26,12 @@ createConnection().then(async connection => {
             'User-Agent',
             'Accept',
             'Accept-Encoding',
+            'Access-Control-Allow-Headers',
+            'Access-Control-Expose-Headers',
             'Connection',
-            'X-Acess-Token'
+            'X-Acess-Token',
+            'x-acess-token',
+            'Authorization'
         ],
         credentials: true,
         methods: 'GET, HEAD, OPRTIONS, PUT, PACH, POST, DELETE',
@@ -105,6 +109,17 @@ createConnection().then(async connection => {
         //GROUP
         if(route.type=="authGroupAction" && route.method=="put"){
             (app as any)[route.method](route.route, verifyToken, isGroupAdmin, checkCharacters, checkDuplicateGroupName, (req: Request, res: Response, next: Function) => {
+                const result = (new (route.controller as any))[route.action](req, res, next);
+                if (result instanceof Promise) {
+                    result.then(result => result !== null && result !== undefined ? res.send(result) : undefined);
+    
+                } else if (result !== null && result !== undefined) {
+                    res.json(result);
+                }
+            });
+        }
+        if(route.type=="authGroupAction" && route.method=="get"){
+            (app as any)[route.method](route.route, verifyToken, (req: Request, res: Response, next: Function) => {
                 const result = (new (route.controller as any))[route.action](req, res, next);
                 if (result instanceof Promise) {
                     result.then(result => result !== null && result !== undefined ? res.send(result) : undefined);
