@@ -23,27 +23,42 @@ async function checkDuplicateEmail(req: Request, res: Response, next?: NextFunct
             next();
         }
                   
-    }).catch((err) => { res.status(500).send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
+    }).catch((err) => { res.send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
 
+}      
+
+async function checkDuplicateName(req: Request, res: Response, next?: NextFunction){
+    const userRepository = await getRepository(User);
+
+    return new Promise(async (resolve) => {
+        
+        if((req.body.firstName == "" || req.body.lastName == "") || (req.body.firstName == null || req.body.lastName == null) || (req.body.firstName == undefined || req.body.lastName == undefined) || (req.body.firstName == "null" || req.body.lastName == "null")){
+            return res.send({ message: 'Todos os campos devem ser preenchidos!' });
+        }
+        else{
+            next();
+        }
+    }).catch((err) => { res.send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
 }
+
 
 async function checkDuplicateNickName(req: Request, res: Response, next?: NextFunction){
     const userRepository = await getRepository(User);
 
     return new Promise(async (resolve) => {
         
-        if(req.body.nickName == "" ||  req.body.nickName == null || req.body.nickName == undefined || req.body.nickName == "null"){
+        if(req.body.name == "" ||  req.body.name == null || req.body.name == undefined || req.body.name == "null"){
             return res.send({ message: 'Todos os campos devem ser preenchidos!' });
         }
         else{
-            const nameExists = await userRepository.findOne({nickName: req.body.nickName});
+            const nameExists = await userRepository.findOne({userName: req.body.name});
         
             if(nameExists){
-                return res.send({message: 'Ja existe um usuario cadastrado com este nick!'});
+                return res.send({message: 'Ja existe um usuario cadastrado com este nome!'});
             }
             next();
         }
-    }).catch((err) => { res.status(500).send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
+    }).catch((err) => { res.send({ message: 'Houve um erro inesperado!' }); console.log(err); return;});
 }
 
 //middleware data de nascimento
@@ -71,11 +86,12 @@ async function checkBirthDate(req: Request, res: Response, next?: NextFunction){
         //   next();
       }
                 
-  }).catch((err) => { res.status(500).send({ message: 'Houve um ero inesperado!' }); console.log(err); return;});
+  }).catch((err) => { res.send({ message: 'Houve um ero inesperado!' }); console.log(err); return;});
 
 }      
 
 const verifysignup = { checkDuplicateEmail,
+                       checkDuplicateName,
                        checkDuplicateNickName,
                        checkBirthDate     
                     };
