@@ -6,13 +6,33 @@ async function checkCharacters(req: Request, res: Response, next?: NextFunction)
     return new Promise(async (resolve) => {
 
         const name = req.body.groupName;
-        const  nameLength  = name.length;
-        // const descLength = req.body.description.length;
+        const desc = req.body.description;
+        const users = req.body.maxUsers; 
+        const cat = req.body.categoryId;
 
-        if(nameLength == 0 || nameLength < 7 /*|| (descLength == 0 || descLength < 20)*/){
+        if(cat < 3){
             return res.send('O(s) campo(s) devem ser preenchidos o suficiente para que entendam sua intenção com este grupo!')
         }
-        console.log(nameLength);
+
+        if(name.length < 7){
+            return res.send('O(s) campo(s) devem ser preenchidos o suficiente para que entendam sua intenção com este grupo!')
+        }
+
+        if(desc.length < 20){
+           return res.send('O(s) campo(s) devem ser preenchidos o suficiente para que entendam sua intenção com este grupo!')
+        }
+        
+        if(typeof users != "number" ){
+            return res.send('O campo deve ser preenchido com numeros')
+        }
+
+            if(users > 250){
+             return res.send('Os grupos não podem ter mais de 250 pessoas')
+        }
+        if(users < 50){
+            return res.send('O numero maximo de pessoas não pode ser menor que 50')
+       }
+        
         next();
 
     }).catch((err) => { res.status(500).send({ message: 'Houve um erro inesperado!' }); console.log(err); return; });
@@ -30,12 +50,13 @@ async function checkDuplicateGroupName(req: Request, res: Response, next?: NextF
             const groupNameExists = await groupRep.findOne({groupName: req.body.groupName});
 
             if(groupNameExists){
-                return res.send({ message: 'Ja existe um grupo com este nome!'});
+                return res.status(400).send({ message: 'Ja existe um grupo com este nome!'});
             }
             next(); 
         }
     }).catch((err) => { res.status(500).send({ message: 'Houve um erro inesperado!' }); console.log(err); return; });
 }
+
 
 const verifygroup = {
     checkCharacters,
