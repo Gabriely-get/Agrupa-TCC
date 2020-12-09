@@ -6,16 +6,33 @@ async function checkCharacters(req: Request, res: Response, next?: NextFunction)
     return new Promise(async (resolve) => {
 
         const name = req.body.groupName;
-        const  nameLength  = name.length;
-        // const descLength = req.body.description.length;
+        const desc = req.body.description;
+        const users = req.body.maxUsers; 
+        const cat = req.body.categoryId;
 
-        if(nameLength == 0 || nameLength < 7 /*|| (descLength == 0 || descLength < 20)*/){
+        if(!name || !desc || !users || !cat){
+            return res.send('O(s) campo(s) devem ser preenchidos!')
+        }
+
+        if(name.length < 7){
             return res.send('O(s) campo(s) devem ser preenchidos o suficiente para que entendam sua intenção com este grupo!')
         }
-        console.log(nameLength);
+
+        if(desc.length < 20){
+           return res.send('O(s) campo(s) devem ser preenchidos o suficiente para que entendam sua intenção com este grupo!')
+        }
+        
+        if(typeof users != "number" ){
+            return res.send('O campo deve ser preenchido com numeros')
+        }
+
+            if(users > 250){
+             return res.send('Os grupos não podem ter mais de 250 pessoas')
+        }
+        
         next();
 
-    }).catch((err) => { res.status(500).send({ message: 'Houve um erro inesperado!' }); console.log(err); return; });
+    }).catch((err) => { res.send({ message: 'Houve um erro inesperado!' }); console.log(err); return; });
 }
 
 async function checkDuplicateGroupName(req: Request, res: Response, next?: NextFunction){
@@ -34,8 +51,9 @@ async function checkDuplicateGroupName(req: Request, res: Response, next?: NextF
             }
             next(); 
         }
-    }).catch((err) => { res.status(500).send({ message: 'Houve um erro inesperado!' }); console.log(err); return; });
+    }).catch((err) => { res.send({ message: 'Houve um erro inesperado!' }); console.log(err); return; });
 }
+
 
 const verifygroup = {
     checkCharacters,
