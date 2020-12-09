@@ -18,6 +18,12 @@ export class grouptable{
     maxUsers: number;
 
     @Column()
+    imgAvatar:  string;
+    
+    @Column()
+    categoryId:  string;
+
+    @Column()
     imgGroup:  string;
 
 }
