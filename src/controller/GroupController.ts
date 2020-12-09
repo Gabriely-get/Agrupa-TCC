@@ -9,15 +9,15 @@ export class GroupController {
     private userRepository = getRepository(User);
 
     async all(re: Request, res: Response, next: NextFunction) {
-        if(await this.userRepository.find()){
-            return this.userRepository.find();
+        if(await this.groupRepository.find()){
+            return this.groupRepository.find();
         }
         return res.send({ message: 'Nao ha usuarios cadastrados!' });
     }
 
     async one(req: Request, res: Response, next: NextFunction) {
-        if(await this.userRepository.findOne(req.params.id)){
-            return this.userRepository.findOne(req.params.id);
+        if(await this.groupRepository.findOne(req.params.id)){
+            return this.groupRepository.findOne(req.params.id);
         }
         return res.send({ message: 'Nao ha um usuario com esta identificação' });
     }
