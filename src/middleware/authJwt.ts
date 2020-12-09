@@ -60,19 +60,16 @@ async function isGroupAdmin(req: Request, res: Response, next?: NextFunction){
             return res.status(401).send({ message: "Unauthorized!" });
         }
         if (decoded.id && req.params.id) {
-            const gga = await createQueryBuilder()
-                        .select()
-                        .from(group_user,"gu")
-                        .where('gu.groupID = :id1', {id1: req.params.id})
-                        .andWhere('gu.userId = :id2', {id2: decoded.id})
-                        .getRawOne();
-            const getGroupAdmin = await conn.query("SELECT isGroupAdmin FROM group_user WHERE groupId = 'req.params.id' AND userId = 'decoded.id' ");
-            
-            if(gga){
-                res.send(gga);
-                next();
+            const gi = req.params.id;
+            const ui = decoded.id;
+            const getGroupAdmin = await conn.query("SELECT * FROM group_user WHERE groupId = 'gi' AND userId = 'ui' ");
+            console.log('antes: ' + getGroupAdmin.isGroupAdmin);
+            if(getGroupAdmin.isGroupAdmin == true){
+                console.log('depois: ' + getGroupAdmin.isGroupAdmin);
+                // res.send(gga);
+               return next();
             }
-            return res.send({message: 'É necessario ser administrador do grupo', id: decoded.id, params: req.params.id, admin: gga.isGroupAdmin});
+            return res.send({message: 'É necessario ser administrador do grupo', id: decoded.id, params: req.params.id, admin: getGroupAdmin});
         }
         return res.status(403).send({ message: "Operação não pode ser concluída por erro das credenciais!" });
         });
