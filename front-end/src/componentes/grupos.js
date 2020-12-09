@@ -1,15 +1,41 @@
 import React from 'react';
 import './grupos.css';
 import './header.css';
+import api from '../services/api';
+import * as jwt from 'jsonwebtoken';
+import {logout, getToken, secret, campotoken, isAuthenticated} from '../services/auth';
 import { Link } from 'react-router-dom';
 
 
 
 export default class Grupos extends React.Component {
+
+    state = {
+        nome: "",
+        nickName: "",
+        error: ""
+    };
+
+    handleLogout = async e => {
+
+        e.preventDefault();
+          try {
+                localStorage.setItem(campotoken, 'ccc');
+                this.props.history.push("/");
+
+            } catch (err) {
+                console.log("erro: " + err);
+                this.setState({
+                error:
+                "Houve um erro inesperado mas não se preocupe, não é sua culpa!"
+                });
+        }
+    };
+
     render() {
         return (
             <div>
-                <header className="menu-web">
+                <header>
                     <ul>
                         <Link to="/grupos"><li><img src="img/logo.png" /></li></Link>
                         <Link to="/grupos" className="pagina_atual"><li>Início</li></Link>
@@ -25,27 +51,10 @@ export default class Grupos extends React.Component {
                     </ul>
                     <ul>
                         <Link to="/perfil" ><li><img src="img/icon-user.png" /></li></Link>
-                        <Link to="/" ><li><i class="fas fa-sign-out-alt"></i></li></Link>
+                        <Link to=""><li><i class="fas fa-sign-out-alt" onSubmit={this.handleLogout}></i></li></Link>
                     </ul>
                 </header>
-                <header className="menu-mobile">
-                    <input type="checkbox" className="checkbox-menu" />
-                    <img src="img/menu-mobile.png" class="menu-hamburguer" />
-                    <Link to="/grupos"><li><img src="img/logo-h-p.png" /></li></Link>
-                    <ul className="menu-lateral">
-                        <Link to="/grupos"><li><img src="img/logo-h-p.png" /></li></Link>
-                        <Link to="/grupos" className="pagina_atual"><li>Início</li></Link>
-                        <Link><li><div className="i-grupos">Grupos<ul className="dropdown">
-                            <Link to="/grupo" ><li><img src="img/grupo-exemplo1.jpg" />Superonze</li></Link>
-                            <Link to="/grupo" ><li><img src="img/grupo-exemplo2.jpg" />Basqueteiros</li></Link>
-                            <Link to="/grupo" ><li><img src="img/grupo-exemplo3.jpg" />Fut Americano</li></Link>
-                            <Link to="/grupo" ><li><img src="img/grupo-exemplo4.jpg" />Overwatch</li></Link>
-                            <Link to="/grupo" ><li><img src="img/grupo-exemplo5.jpg" />Star Wars</li></Link>
-                        </ul><i class="fas fa-caret-down"></i></div></li></Link>
-                        <Link to="/eventos" ><li>Eventos</li></Link>
-                        <Link to="/sugestoes" ><li>Sugestões</li></Link>
-                    </ul>
-                </header>
+                <label display="block">{ this.state.error && <h3 id="loginError"> {this.state.error} </h3> }</label>
                 <section className="pesquisa">
                     <a>Criar Grupo</a>
                     <input type="checkbox" className="checkbox-modal" />
