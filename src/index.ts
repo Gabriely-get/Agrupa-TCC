@@ -8,7 +8,7 @@ import * as cors from 'cors';
 import {Routes} from "./routes/routes";
 import { checkDuplicateEmail, checkDuplicateNickName } from "./middleware/verifySignUp";
 import {isAdmin, verifyToken, isGroupAdmin} from "./middleware/authJwt";
-import {checkCharacters, checkDuplicateGroupName} from "./middleware/verifyCreateGroup";
+import {checkCharacters, checkDuplicateGroupName} from "./middleware/verifyGroup";
 
 createConnection().then(async connection => {
 
@@ -27,7 +27,9 @@ createConnection().then(async connection => {
             'Accept',
             'Accept-Encoding',
             'Connection',
-            'X-Acess-Token'
+            'X-Acess-Token',
+            'x-access-token',
+            'Authorization'
         ],
         credentials: true,
         methods: 'GET, HEAD, OPRTIONS, PUT, PACH, POST, DELETE',
@@ -103,8 +105,33 @@ createConnection().then(async connection => {
             });
         }
         //GROUP
+        //update
         if(route.type=="authGroupAction" && route.method=="put"){
             (app as any)[route.method](route.route, verifyToken, isGroupAdmin, checkCharacters, checkDuplicateGroupName, (req: Request, res: Response, next: Function) => {
+                const result = (new (route.controller as any))[route.action](req, res, next);
+                if (result instanceof Promise) {
+                    result.then(result => result !== null && result !== undefined ? res.send(result) : undefined);
+    
+                } else if (result !== null && result !== undefined) {
+                    res.json(result);
+                }
+            });
+        }
+        //STORE
+        if(route.type=="authGroupAction" && route.method=="post"){
+            (app as any)[route.method](route.route, verifyToken, checkCharacters, checkDuplicateGroupName, (req: Request, res: Response, next: Function) => {
+                const result = (new (route.controller as any))[route.action](req, res, next);
+                if (result instanceof Promise) {
+                    result.then(result => result !== null && result !== undefined ? res.send(result) : undefined);
+    
+                } else if (result !== null && result !== undefined) {
+                    res.json(result);
+                }
+            });
+        }
+        //read
+        if(route.type=="authGroupAction" && route.method=="get"){
+            (app as any)[route.method](route.route, verifyToken, (req: Request, res: Response, next: Function) => {
                 const result = (new (route.controller as any))[route.action](req, res, next);
                 if (result instanceof Promise) {
                     result.then(result => result !== null && result !== undefined ? res.send(result) : undefined);
