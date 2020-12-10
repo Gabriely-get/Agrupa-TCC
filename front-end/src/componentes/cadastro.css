@@ -139,7 +139,7 @@
 }
 
 .div-grid div form b{
-    font-size: 12px;
+    font-size: 10px;
     vertical-align: 3px;
     font-weight: 500;
     margin: 10% 0 0 10%;
@@ -195,10 +195,10 @@
 
 .div-grid div form input.checkbox-termos{
     position: absolute;
-    width: 120px;
+    width: 210px;
     height: 40px;
-    top: 73%;
-    left: 50%;
+    top: 75%;
+    left: 46%;
     opacity: 0;
     cursor: pointer;
     z-index: 1;
@@ -221,11 +221,12 @@
     opacity: 1;
     cursor: pointer;
     z-index: 9999999999;
-    top: 12%;
-    left: 45%;
+    top: 15%;
+    left: 70%;
     width: 20px;
     height: 20px;
     cursor: pointer;
+    position: fixed;
 }
 
 .div-grid div form  input.checkbox-termos:checked:before{
@@ -258,6 +259,21 @@
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.25);
     display: none;
+}
+
+.div-grid div form div.modal-criar-termos div.termos-termos p{
+    font-size: 12px;
+}
+
+.div-grid div form div.modal-criar-termos div.termos-termos{
+    overflow: auto;
+    height: 70%;
+    width: 90%;
+    position: relative;
+    padding: 5%;
+    margin: 5% 0 5% 5%;
+    background: var(--cinza-claro);
+    border-radius: 10px;
 }
 
 .div-grid div form  div.modal-criar-termos h1{
@@ -302,7 +318,7 @@
         height: auto;
         padding-bottom: 5%;
         position: relative;
-        margin-top: 5%;
+        margin-top: 20%;
     }
     
     .div-grid div form .cadastrar{
@@ -324,10 +340,11 @@
     }
     
     .div-grid div form  input.checkbox-termos:checked{
-        top: -20vh;
+        top: 10%;
         left: 85%;
         width: 15px;
         height: 15px;
+        position: fixed;
     }
     
     .div-grid div form  input.checkbox-termos:checked:before{
